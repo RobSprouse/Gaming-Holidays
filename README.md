@@ -1,6 +1,6 @@
 # Gaming-Holidays
 
-https://github.com/RobSprouse/Gaming-Holidays
+https://robsprouse.github.io/Gaming-Holidays/
 
 # 07 Project 1: Interactive Front-End Application
 
