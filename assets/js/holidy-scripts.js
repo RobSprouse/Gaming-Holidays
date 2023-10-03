@@ -5,8 +5,12 @@ var day = '1';
 var display = document.querySelector(".base-section");
 
 
+
 // Xpert assistant help with setting up API 
 // Note, accessing data outside of using cors is not possible
+// Note, cors-anywhere, herokuapp is not authorized to use this API
+
+/*
 $.ajax({
     url: 'https://holidayapi.com/v1/holidays',
     method: 'GET',
@@ -27,4 +31,5 @@ $.ajax({
       console.error(error);
     }
   });
-  
+*/
+
