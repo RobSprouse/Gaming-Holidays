@@ -10,7 +10,7 @@ var holidaysList = document.getElementById("test-me");
 var holidaySearchButton = document.querySelector("#search-button");
 
 
-/*
+
 
 const holidayUrl = `https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb&country=US&year=2022`;
 console.log(holidayUrl)
@@ -28,7 +28,10 @@ fetch(holidayUrl)
     console.error(error);
   });
 
-  */
+
+
+/*
+
  var testData;
 
 const countryUrl = `https://holidayapi.com/v1/countries?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb`;
@@ -55,7 +58,7 @@ function getCountry(){
         console.log(testData);
         testName = 'United States';
         
-        /*
+        
         countryData.countries.forEach((testValue, index)=>{let test = `array number ${testValue.name}`
         if (test === "United States") {
         let getStuff = `index ${index}`;
@@ -65,7 +68,7 @@ function getCountry(){
             console.log("this is not working :)")
         }
         });
-        */
+        
         function testMe(countries){countryData.countries.name
             return countryData.countries.name === "Canada";
         }
@@ -82,6 +85,8 @@ function getCountry(){
 }
 
 logData();
+
+*/
 
 
 
