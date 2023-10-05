@@ -53,6 +53,12 @@ function getCountry(){
         countryData = data;
         testData = data;
         console.log(testData);
+        testName = 'United States'
+        countryData.countries.forEach((testValue)=>{let test = `array number ${testValue.code}`
+        console.log(test);
+        });
+        
+        
         console.log(countryData.countries[0].code);
         proData();
     })
@@ -63,6 +69,8 @@ function getCountry(){
 }
 
 logData();
+
+
 
 function getOverrideInputs(){
 holidayCountry = document.getElementById("country-input").value;
