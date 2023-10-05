@@ -21,23 +21,31 @@ let tags = "";
 let releaseDates = "";
 let metacritic = "";
 
+
 // COMMENT: Game list and their data.keys commented
 const gameListURL = "https://api.rawg.io/api/games" + apiKey;
 // after fetchGameListURL (gameList)
-// gameID = gameList.results[i].id
-// gameName = gameList.results[i].name
-// platforms = gameList.results[i].platforms[j].platform.name
-// releasedDate = results[i].released
-// backgroundImg = results[i].background_image // (value is a URL)
+// gameID = gameList.results[j].id // used to pass to fetchGameIdURL, not displayed
+// gameName = gameList.results[j].name
+// platforms = gameList.results[j].platforms[k].platform.name
+// releasedDate = gameList[j].released
+// backgroundImg = gameList[j].background_image // value is a URL
+// shortScreenShots = gameList[j].short_screenshots[k].image // value is a URL
+//  gameListTags = gameList[j].tags[k].name
 
 // COMMENT: Game and their data.keys commented
 const gameIdURL = "https://api.rawg.io/api/games/" + gameId + apiKey;
 // after fetchGameIdURL (game)
 // let gameName = game.name;
-// let gameDeveloper = game.developers;
+// let gameDevelopers = game.developers[j].name;
 // let gameReleaseDate = game.released;
-// let gameBackgroundImage = game.background_image;
-// let gamePlatforms = game.platforms.name;
+// let gameBackgroundImage = game.background_image; // value is a URL
+// let gamePlatforms = game.platforms[j].platform.name
+// let gameDescription = game.description_raw;
+// let gameGenres = game.genres[j].name
+// let gameMetacritic = game.metacritic
+// let alternativeNames = game.alternative_names // Example: "Grand Theft Auto V" is also "GTA V"
+// TODO: Decide if we want to add a checkbox for local storage saved games
 
 // COMMENT: Genre
 const GenreURL = "https://api.rawg.io/api/genres" + apiKey;
@@ -61,39 +69,76 @@ const datesFilter = `&dates=${releaseDates}`; // Filter by a release date, for e
 const metacriticFilter = `&metacritic=${metacritic}`; //Filter by a metaCritic rating, for example: 80,100.
 const searchOrderParam = `&ordering=${searchOrder}`; // Available fields: name, released, added, created, updated, rating, metacritic. You can reverse the sort order adding a hyphen, for example: -released.
 
-// fetch for gamesListURL
-fetch("https://api.rawg.io/api/games?key=164d87e9b2364003ad69bc496d5e3d7f")
-     .then((response) => {
-          if (!response.ok) {
-               $("#invalidEntry").show();
-               $("#invalidEntry").text("The response from the weather api failed. Please try again.");
-               throw new Error("HTTP error " + response.status);
-          }
-          return response.json();
-     })
-     .then((gameList) => {
-          console.log(gameList);
-          // TODO: create separate <div>'s with class="gameList", structure each to contain the contents within mock-up
-          // backgroundImg = results[i].background_image // (value is a URL)
-          // gameName = gameList.results[i].name
-          // platforms = gameList.results[i].platforms[j].platform.name
-          // releasedDate = results[i].released
-          // gameID = gameList.results[i].id // used to pass to fetchGameIdURL, not displayed
-     })
-     .catch((error) => console.error("Error:", error));
+// COMMENT: Element containers
 
-// fetch for game by id
-fetch("https://api.rawg.io/api/games/3498?key=164d87e9b2364003ad69bc496d5e3d7f")
-     .then((response) => {
-          if (!response.ok) {
-               $("#invalidEntry").show();
-               $("#invalidEntry").text("The response from the weather api failed. Please try again.");
-               throw new Error("HTTP error " + response.status);
-          }
-          return response.json();
-     })
-     .then((game) => {
-          console.log(game);
-          // TODO: creat a <div> with class "gameData". structure it to contain the contents the way we want
-     })
-     .catch((error) => console.error("Error:", error));
+
+
+// const gameListNameElement = $(".gameElement" + i).append("<h2>gameList.results[i].name</h2>");
+// const gameListPlatformsElement = $()
+
+// fetch for gamesListURL
+// fetch("https://api.rawg.io/api/games?key=164d87e9b2364003ad69bc496d5e3d7f")
+//      .then((response) => {
+//           if (!response.ok) {
+//                $("#invalidEntry").show();
+//                $("#invalidEntry").text("The response from the weather api failed. Please try again.");
+//                throw new Error("HTTP error " + response.status);
+//           }
+//           return response.json();
+//      })
+//      .then((gameList) => {
+//           console.log(gameList);
+//           // TODO: create separate element's with class="gameList", structure each to contain the contents within mock-up
+
+//      })
+//      .catch((error) => console.error("Error:", error));
+
+
+// // fetch for game by id
+// fetch("https://api.rawg.io/api/games/3498?key=164d87e9b2364003ad69bc496d5e3d7f")
+//      .then((response) => {
+//           if (!response.ok) {
+//                $("#invalidEntry").show();
+//                $("#invalidEntry").text("The response from the weather api failed. Please try again.");
+//                throw new Error("HTTP error " + response.status);
+//           }
+//           return response.json();
+//      })
+//      .then((game) => {
+//           console.log(game);
+//           // TODO: creat a <div> with class "gameData". structure it to contain the contents the way we want
+//      })
+//      .catch((error) => console.error("Error:", error));
+
+
+// fetch("https://api.rawg.io/api/games/3498?key=164d87e9b2364003ad69bc496d5e3d7f")
+//      .then((response) => response.json())
+//      .then((game) => {
+//           let gameCards = $("<div class='gameCards'>");
+//           gameCards.append($("<div class='gameName'>").text(game.name));
+
+//           $.each(game.platforms, function (i, platform) {
+//                gameCards.append($("<div class='platformName'>").text(platform.platform.name));
+//           });
+
+//           gameCards.append($("<div class='releasedDate'>").text(game.released));
+//           // fetchFunFactDate (game.released)
+
+//           let img = $("<img class='backgroundImage'>", { src: game.background_image });
+//           gameCards.append(img);
+          
+//           $.each(game.short_screenshots, function (i, screenshot) {
+//                let img = $("<img class='backgroundImage>", { src: screenshot.image });
+//                gameCards.append(img);
+//           });
+
+//           $.each(game.tags, function (i, tag) {
+//                gameCards.append($("<div class='tags'>").text(tag.name));
+//           });
+
+//           $(".gameCardsDiv").append(gameCards);
+//      })
+//      .catch((error) => console.error("Error:", error));
+
+// TODO: get date format and location to madeline
+
