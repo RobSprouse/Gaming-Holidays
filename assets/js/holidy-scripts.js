@@ -53,9 +53,16 @@ function getCountry(){
         countryData = data;
         testData = data;
         console.log(testData);
-        testName = 'United States'
-        countryData.countries.forEach((testValue)=>{let test = `array number ${testValue.code}`
-        console.log(test);
+        testName = 'United States';
+        
+        countryData.countries.forEach((testValue, index)=>{let test = `array number ${testValue.name}`
+        if (test = testName) {
+        let getStuff = `index ${testValue.index}`;
+        console.log(getStuff);
+        }
+        else {
+            console.log("this is not working :)")
+        }
         });
         
         
