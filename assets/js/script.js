@@ -21,7 +21,6 @@ let tags = "";
 let releaseDates = "";
 let metacritic = "";
 
-
 // COMMENT: Game list and their data.keys commented
 const gameListURL = "https://api.rawg.io/api/games" + apiKey;
 // after fetchGameListURL (gameList)
@@ -71,12 +70,8 @@ const searchOrderParam = `&ordering=${searchOrder}`; // Available fields: name, 
 
 // COMMENT: Element containers
 
-
-
-// const gameListNameElement = $(".gameElement" + i).append("<h2>gameList.results[i].name</h2>");
-// const gameListPlatformsElement = $()
-
-// fetch for gamesListURL
+// TODO: Get data and append it to the HTML document so it can be formatted
+// // fetch for gamesListURL
 // fetch("https://api.rawg.io/api/games?key=164d87e9b2364003ad69bc496d5e3d7f")
 //      .then((response) => {
 //           if (!response.ok) {
@@ -88,57 +83,36 @@ const searchOrderParam = `&ordering=${searchOrder}`; // Available fields: name, 
 //      })
 //      .then((gameList) => {
 //           console.log(gameList);
-//           // TODO: create separate element's with class="gameList", structure each to contain the contents within mock-up
-
 //      })
 //      .catch((error) => console.error("Error:", error));
 
 
-// // fetch for game by id
-// fetch("https://api.rawg.io/api/games/3498?key=164d87e9b2364003ad69bc496d5e3d7f")
-//      .then((response) => {
-//           if (!response.ok) {
-//                $("#invalidEntry").show();
-//                $("#invalidEntry").text("The response from the weather api failed. Please try again.");
-//                throw new Error("HTTP error " + response.status);
-//           }
-//           return response.json();
-//      })
-//      .then((game) => {
-//           console.log(game);
-//           // TODO: creat a <div> with class "gameData". structure it to contain the contents the way we want
-//      })
-//      .catch((error) => console.error("Error:", error));
 
-
-// fetch("https://api.rawg.io/api/games/3498?key=164d87e9b2364003ad69bc496d5e3d7f")
-//      .then((response) => response.json())
-//      .then((game) => {
-//           let gameCards = $("<div class='gameCards'>");
-//           gameCards.append($("<div class='gameName'>").text(game.name));
-
-//           $.each(game.platforms, function (i, platform) {
-//                gameCards.append($("<div class='platformName'>").text(platform.platform.name));
-//           });
-
-//           gameCards.append($("<div class='releasedDate'>").text(game.released));
-//           // fetchFunFactDate (game.released)
-
-//           let img = $("<img class='backgroundImage'>", { src: game.background_image });
-//           gameCards.append(img);
-          
-//           $.each(game.short_screenshots, function (i, screenshot) {
-//                let img = $("<img class='backgroundImage>", { src: screenshot.image });
-//                gameCards.append(img);
-//           });
-
-//           $.each(game.tags, function (i, tag) {
-//                gameCards.append($("<div class='tags'>").text(tag.name));
-//           });
-
-//           $(".gameCardsDiv").append(gameCards);
-//      })
-//      .catch((error) => console.error("Error:", error));
-
-// TODO: get date format and location to madeline
-
+fetch("https://api.rawg.io/api/games/3498?key=164d87e9b2364003ad69bc496d5e3d7f")
+     .then((response) => response.json())
+     .then((game) => {
+          let singleGameCard = $("<div class='singleGameCard'>");
+          singleGameCard.append(
+               $("<img>", { class: "backgroundImage", src: game.background_image, alt: "background image" })
+          );
+          singleGameCard.append($("<h2 class='gameName'>").text(game.name));
+          singleGameCard.append($("<p class='releasedDate'>").text(game.released));
+          singleGameCard.append("<h3>Platforms</h3>");
+          singleGameCard.append(
+               $("<ul class='platformName'>").append(
+                    $.map(game.platforms, function (platforms) {
+                         return $("<li>").text(platforms.platform.name);
+                    })
+               )
+          );
+          singleGameCard.append("<h3>Tags</h3>");
+          singleGameCard.append(
+               $("<ul class = 'tags'>").append(
+                    $.map(game.tags, function (tags) {
+                         return $("<li>").text(tags.name);
+                    })
+               )
+          );
+          $(".gameCardsDiv").append(singleGameCard);
+     })
+     .catch((error) => console.error("Error:", error));
