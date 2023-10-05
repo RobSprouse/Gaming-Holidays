@@ -12,7 +12,7 @@ var holidaySearchButton = document.querySelector("#search-button");
 
 
 
-const holidayUrl = `https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb&country=US&year=2022`;
+const holidayUrl = `https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb` + `&country=US` + `&year=2022`;
 console.log(holidayUrl)
 
 fetch(holidayUrl)
