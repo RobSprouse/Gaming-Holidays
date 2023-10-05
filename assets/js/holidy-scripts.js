@@ -55,15 +55,21 @@ function getCountry(){
         console.log(testData);
         testName = 'United States';
         
+        /*
         countryData.countries.forEach((testValue, index)=>{let test = `array number ${testValue.name}`
-        if (test = testName) {
-        let getStuff = `index ${testValue.index}`;
+        if (test === "United States") {
+        let getStuff = `index ${index}`;
         console.log(getStuff);
         }
         else {
             console.log("this is not working :)")
         }
         });
+        */
+        function testMe(countries){countryData.countries.name
+            return countryData.countries.name === "Canada";
+        }
+        console.log(countryData.countries.name.find(testMe));
         
         
         console.log(countryData.countries[0].code);
