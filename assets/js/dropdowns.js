@@ -51,3 +51,8 @@ const platforms = [
      { text: "Game Gear", value: "77" },
      { text: "Neo Geo", value: "12" },
 ];
+
+const defineSearchURL = [
+     { text: "All Games", value: ""},
+]
+

@@ -7,15 +7,21 @@ $(document).ready(function () {
           return dropdown;
      }
 
-
      $(".gameSearch").append(createDropdown("platformsDropdown", platforms));
 
+     // TODO: creat a drowndown to handle how the submit works
      $("#searchInput").submit(function (event) {
           event.preventDefault();
           let platformValue = $("#platformsDropdown").val();
           let userInput = $('#searchInput input[name="searchInput"]').val();
-
           fetchGamesListURL(platformValue, userInput);
+     });
+     // TODO: get this to work
+     $("body").on("click", ".gameName", function () {
+          let fullId = $(this).attr("id"); // Get the full id, e.g., "gameId3505"
+          let gameId = fullId.replace("gameId", ""); // Remove the 'gameId' prefix
+          console.log(gameId);
+          fetchGameIdURL(gameId); // Call the function with the game ID
      });
 });
 
@@ -37,7 +43,6 @@ let developers = "";
 let genres = "";
 let tags = "";
 let releaseDates = "";
-let metacritic = "";
 
 // COMMENT: Game list and their data.keys commented
 // let gameListURL = "https://api.rawg.io/api/games" + apiKey;
@@ -87,8 +92,10 @@ const platformsURL = "https://api.rawg.io/api/platforms" + apiKey; // platforms 
 // const searchOrderParam = `&ordering=${searchOrder}`; // Available fields: name, released, added, created, updated, rating, metacritic. You can reverse the sort order adding a hyphen, for example: -released.
 
 // TODO: Get data and append it to the HTML document so it can be formatted
-// fetch for gamesListURL
+
+// COMMENT: fetch for gameListURL
 function fetchGamesListURL(platformValue, userInput) {
+     $(".gameCardsDiv").empty();
      let gameListURL = "https://api.rawg.io/api/games" + apiKey;
      if (platformValue) {
           const platformsFilter = `&platforms=${platformValue}`;
@@ -109,7 +116,33 @@ function fetchGamesListURL(platformValue, userInput) {
                return response.json();
           })
           .then((gameList) => {
-               console.log(gameList);
+               let gameListDiv = $("<div class='gameListDiv'>");
+               $(".gardCardsDiv").append(gameListDiv);
+               for (var i = 0; i < gameList.results.length; i++) {
+                    let minGameCard = $("<div class='minGameCard'>");
+                    minGameCard.append(
+                         $("<img>", { class: "smallBackgroundImage", src: gameList.results[i].background_image })
+                    );
+                    minGameCard.append(
+                         $("<h2 class='gameName' id='gameId" + gameList.results[i].id + "'>").text(
+                              gameList.results[i].name
+                         )
+                    );
+                    minGameCard.append($("<h3 class='releaseDateHeader'>").text("Release Date:"));
+                    minGameCard.append(
+                         $("<ul class='releaseDate'>").append($("<li>").text(gameList.results[i].released))
+                    );
+                    minGameCard.append($("<h3>Platforms</h3>"));
+                    minGameCard.append(
+                         $("<ul class='platformName'>").append(
+                              $.map(gameList.results[i].platforms, function (platform) {
+                                   return $("<li>").text(platform.platform.name);
+                              })
+                         )
+                    );
+
+                    $(".gameCardsDiv").append(minGameCard);
+               }
           })
           .catch((error) => console.error("Error:", error));
 }
@@ -139,6 +172,7 @@ function fetchGamesListURL(platformValue, userInput) {
 
 // COMMENT: Function to fetch a game by it's Id number (see TODO)
 function fetchGameIdURL(gameId) {
+     $(".gameCardsDiv").empty();
      let gameIdURL = "https://api.rawg.io/api/games/" + gameId + apiKey;
      fetch(gameIdURL)
           .then((response) => {
@@ -150,12 +184,15 @@ function fetchGameIdURL(gameId) {
           })
           .then((response) => response.json())
           .then((game) => {
+               // TODO:add developers <h3> ul li developers
                let singleGameCard = $("<div class='singleGameCard'>");
                singleGameCard.append(
                     $("<img>", { class: "backgroundImage", src: game.background_image, alt: "background image" })
                );
                singleGameCard.append($("<h2 class='gameName'>").text(game.name));
-               singleGameCard.append($("<p class='releasedDate'>").text(game.released));
+               singleGameCard.append($("<h3 class='releaseDateHeader'").text("Release Date:"));
+               minGameCard.append($("<ul class='releaseDate'>"));
+               singleGameCard.append($("<li'>").text(game.released));
                singleGameCard.append("<h3>Platforms</h3>");
                singleGameCard.append(
                     $("<ul class='platformName'>").append(
@@ -172,7 +209,15 @@ function fetchGameIdURL(gameId) {
                          })
                     )
                );
+               $(".gameCardsDiv").empty;
                $(".gameCardsDiv").append(singleGameCard);
           })
           .catch((error) => console.error("Error:", error));
 }
+
+// event listener to click on miniGame div to grab gameId and fetchGameIdURL
+// fetchGameIdURL(gameId)
+//
+//
+//
+// fetchGamesListURL(platformValue, userInput)
