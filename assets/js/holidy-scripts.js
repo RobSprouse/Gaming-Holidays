@@ -9,10 +9,19 @@ var apiKey = '6dc87409-6cac-4849-ad17-e0f4fc8a6deb'
 var holidaysList = document.getElementById("test-me");
 var holidaySearchButton = document.querySelector("#search-button");
 
+countryForURL = `&country=US`;
+yearForURL = `&year=2022`;
+
+const urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb",countryForURL,yearForURL,"`"];
+
+let holidayUrl = urlArray.join("");
+
+console.log(holidayUrl);
 
 
+const holidayUrl2 = `https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb` + countryForURL + yearForURL ;
 
-const holidayUrl = `https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb` + `&country=US` + `&year=2022`;
+/*
 console.log(holidayUrl)
 
 fetch(holidayUrl)
@@ -28,7 +37,7 @@ fetch(holidayUrl)
     console.error(error);
   });
 
-
+*/
 
 /*
 
