@@ -57,7 +57,6 @@ function fetchGameIdURL(gameIdURL) {
                return response.json();
           })
           .then((game) => {
-               console.log(game);
                // TODO: add developers <h3> ul li developers
                let singleGameCard = $("<div class='singleGameCard'>");
                singleGameCard.append(
@@ -92,15 +91,24 @@ function fetchGameIdURL(gameIdURL) {
 $(function () {
      // TODO: figure out how we want to display options
      function createCheckboxMenu(id, options) {
+          // TODO: the /platforms doesn't accept the current by platform query, change the beginning url to games as the query is intended, tie it into the search games url
+          let platformsURL = "https://api.rawg.io/api/platforms" + apiKey; // platforms are defined in dropdownVariables.js
           let menu = $("<div>").attr("id", id).css({
                display: "none",
-               position: "absolute",
+               position: "fixed", // Changed from 'absolute' to 'fixed'
                "background-color": "#f9f9f9",
                "box-shadow": "0px 8px 16px 0px rgba(0,0,0,0.2)",
                padding: "12px 16px",
-               "z-index": "1",
+               "z-index": "50",
                width: "80%",
+               height: "30%",
+               top: "50%", 
+               left: "50%", 
+               transform: "translate(-50%, -50%)", 
+               overflow: "auto" 
           });
+          
+          
 
           let checkboxDiv = $("<div>").css({
                display: "grid",
@@ -123,7 +131,6 @@ $(function () {
 
           menu.append(checkboxDiv);
 
-          // Add a close button to the menu
           let closeButton = $("<button>")
                .text("Close")
                .on("click", function (event) {
@@ -131,7 +138,6 @@ $(function () {
                     event.stopPropagation();
                });
 
-          // Add a clear all button to the menu
           let clearButton = $("<button>")
                .text("Clear All")
                .on("click", function (event) {
@@ -139,8 +145,33 @@ $(function () {
                     event.stopPropagation();
                });
 
-          // Create a div for the buttons and center it
-          let buttonDiv = $("<div>").css({ "text-align": "center" }).append(closeButton, clearButton);
+          let fetchPlatformsButton = $("<button>")
+               .text("Search")
+               .on("click", function (event) {
+                    // Get all checked checkboxes
+                    let checkedPlatforms = $("#" + id + " input:checked")
+                         .map(function () {
+                              return this.value;
+                         })
+                         .get();
+
+                    // Append each platform to the URL
+                    checkedPlatforms.forEach(function (platform) {
+                         platformsURL += "&platforms=" + platform;
+                    });
+                    console.log(platformsURL);
+                    // Fetch the updated URL
+                    fetch(platformsURL)
+                         .then((response) => response.json())
+                         .then((data) => console.log(data))
+                         .catch((error) => console.error("Error:", error));
+
+                    event.stopPropagation();
+               });
+          // TODO: Finish by adding a button that fetches the checked platforms
+          let buttonDiv = $("<div>")
+               .css({ "text-align": "center" })
+               .append(closeButton, clearButton, fetchPlatformsButton);
 
           menu.append(buttonDiv);
 
@@ -153,11 +184,6 @@ $(function () {
      $("#platformsCategory").on("click", function () {
           $("#platformsMenu").show();
      });
-
-     // TODO: Finish by adding a button that fetches the checked platforms
-     // let checkedPlatforms = $("#platformsMenu input:checked").map(function() {
-     //      return this.value;
-     //  }).get();
 
      // COMMENT: Fetches games by user input or returns a default order of list
      $("#searchInput").on("submit", function (event) {
