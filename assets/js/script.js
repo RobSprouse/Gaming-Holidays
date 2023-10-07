@@ -92,7 +92,7 @@ $(function () {
      // TODO: figure out how we want to display options
      function createCheckboxMenu(id, options) {
           // TODO: the /platforms doesn't accept the current by platform query, change the beginning url to games as the query is intended, tie it into the search games url
-          let platformsURL = "https://api.rawg.io/api/platforms" + apiKey; // platforms are defined in dropdownVariables.js
+          // let platformsURL = "https://api.rawg.io/api/platforms" + apiKey; // platforms are defined in dropdownVariables.js
           let menu = $("<div>").attr("id", id).css({
                display: "none",
                position: "fixed", // Changed from 'absolute' to 'fixed'
@@ -145,37 +145,38 @@ $(function () {
                     event.stopPropagation();
                });
 
-          let fetchPlatformsButton = $("<button>")
-               .text("Search")
-               .on("click", function (event) {
-                    // Get all checked checkboxes
-                    let checkedPlatforms = $("#" + id + " input:checked")
-                         .map(function () {
-                              return this.value;
-                         })
-                         .get();
+          // let fetchPlatformsButton = $("<button>")
+          //      .text("Search")
+          //      .on("click", function (event) {
+          //           // Get all checked checkboxes
+          //           let checkedPlatforms = $("#" + id + " input:checked")
+          //                .map(function () {
+          //                     return this.value;
+          //                })
+          //                .get();
 
-                    // Append each platform to the URL
-                    checkedPlatforms.forEach(function (platform) {
-                         platformsURL += "&platforms=" + platform;
-                    });
-                    console.log(platformsURL);
-                    // Fetch the updated URL
-                    fetch(platformsURL)
-                         .then((response) => response.json())
-                         .then((data) => console.log(data))
-                         .catch((error) => console.error("Error:", error));
+          //           // Append each platform to the URL
+          //           checkedPlatforms.forEach(function (platform) {
+          //                platformsURL += "&platforms=" + platform;
+          //           });
+          //           console.log(platformsURL);
+          //           // Fetch the updated URL
+          //           fetch(platformsURL)
+          //                .then((response) => response.json())
+          //                .then((data) => console.log(data))
+          //                .catch((error) => console.error("Error:", error));
 
-                    event.stopPropagation();
-               });
-          // TODO: Finish by adding a button that fetches the checked platforms
+          //           event.stopPropagation();
+          //      });
+          // TODO: Finish by allowing for user input of checked boxes to append platform param to the user input in form
           let buttonDiv = $("<div>")
                .css({ "text-align": "center" })
-               .append(closeButton, clearButton, fetchPlatformsButton);
+               .append(closeButton, clearButton);
 
           menu.append(buttonDiv);
 
           return menu;
+          console.log(menu)
      }
 
      $("#platformsCategory").append(createCheckboxMenu("platformsMenu", platforms));
@@ -195,6 +196,12 @@ $(function () {
                gameListURL += searchQueryParam;
           }
           console.log(gameListURL);
+          fetchGamesListURL(gameListURL);
+     });
+
+     // COMMENT: Fetch all games when All Games is click in categories
+     $("#fetchAllGames").on("click", function (event) {
+          let gameListURL = "https://api.rawg.io/api/games" + apiKey;
           fetchGamesListURL(gameListURL);
      });
 
