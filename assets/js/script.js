@@ -1,3 +1,4 @@
+// @ts-uncheck
 $(document).ready(function () {
 
      // TODO: change dropdown to a pop up that allows user input for search parameters
