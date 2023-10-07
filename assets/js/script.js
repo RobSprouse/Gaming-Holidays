@@ -159,7 +159,6 @@ $(function () {
      //      return this.value;
      //  }).get();
 
-
      // COMMENT: Fetches games by user input or returns a default order of list
      $("#searchInput").on("submit", function (event) {
           event.preventDefault();
@@ -184,8 +183,6 @@ $(function () {
      });
 });
 
-
-
 // COMMENT: Genre URLS
 // const genreURL = "https://api.rawg.io/api/genres" + apiKey;
 // const genreIdURL = "https://api.rawg.io/api/genres/" + genreId + apiKey;
@@ -194,21 +191,6 @@ $(function () {
 // const developerIdURL = "https://api.rawg.io/api/developers/" + developerId + apiKey;
 // COMMENT: Platforms URLs and Platforms define
 // const platformsURL = "https://api.rawg.io/api/platforms" + apiKey; // platforms are defined in dropdownVariables.js
-
-// COMMENT: Empty variables for testing purposes
-// let gameName = "";
-// let gameId = "";
-// let genreId = "";
-// let developerId = "";
-// let platformId = "";
-// let pageNum = "";
-// let pageSize = "";
-// let searchQuery = [];
-// let searchOrder = "";
-// let developers = "";
-// let genres = "";
-// let tags = "";
-// let releaseDates = "";
 
 // COMMENT: Search Parameters for games
 // const pageNumParam = `&page=${pageNum}`;
@@ -245,30 +227,3 @@ $(function () {
 // let gameGenres = game.genres[j].name
 // let gameMetacritic = game.metacritic
 // let alternativeNames = game.alternative_names // Example: "Grand Theft Auto V" is also "GTA V"
-
-// COMMENT: this dropdown works but what to creat a tooltip like menu that pops up, user inputs criteria, then after input, it fetches games depending on user input
-// function createDropdown(id, options) {
-//      let dropdown = $("<select>").attr("id", id);
-//      options.forEach((option) => {
-//           dropdown.append(new Option(option.text, option.value));
-//      });
-//      return dropdown;
-// }
-
-// $(".gameSearch").append(createDropdown("platformsDropdown", platforms));
-
-// $("#searchInput").submit(function (event) {
-//      event.preventDefault();
-//      let platformValue = $("#platformsDropdown").val();
-//      let userInput = $('#searchInput input[name="searchInput"]').val();
-//      let gameListURL = "https://api.rawg.io/api/games" + apiKey;
-//      if (platformValue) {
-//           const platformsFilter = `&platforms=${platformValue}`;
-//           gameListURL += platformsFilter;
-//      } else if (userInput) {
-//           const searchQueryParam = `&search=${userInput}`;
-//           gameListURL += searchQueryParam;
-//           return gameListURL;
-//      }
-//      fetchGamesListURL(gameListURL);
-// });
