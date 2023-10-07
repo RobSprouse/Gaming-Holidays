@@ -1,5 +1,4 @@
 const platforms = [
-     { text: "", value: ""},
      { text: "PC", value: "4" },
      { text: "PlayStation 5", value: "187" },
      { text: "Xbox One", value: "1" },

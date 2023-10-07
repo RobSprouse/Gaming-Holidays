@@ -1,49 +1,7 @@
 // @ts-uncheck
-$(document).ready(function () {
-
-     // TODO: change dropdown to a pop up that allows user input for search parameters
-     function createDropdown(id, options) {
-          let dropdown = $("<select>").attr("id", id);
-          options.forEach((option) => {
-               dropdown.append(new Option(option.text, option.value));
-          });
-          return dropdown;
-     }
-
-     $(".gameSearch").append(createDropdown("platformsDropdown", platforms));
-
-
-     $("#searchInput").submit(function (event) {
-          event.preventDefault();
-          let platformValue = $("#platformsDropdown").val();
-          let userInput = $('#searchInput input[name="searchInput"]').val();
-          let gameListURL = "https://api.rawg.io/api/games" + apiKey;
-          if (platformValue) {
-               const platformsFilter = `&platforms=${platformValue}`;
-               gameListURL += platformsFilter;
-          } else if (userInput) {
-               const searchQueryParam = `&search=${userInput}`;
-               gameListURL += searchQueryParam;
-               return gameListURL;
-          }
-          fetchGamesListURL(gameListURL);
-     });
-
-     // COMMENT: on-click to fetch the details of a single game when the game's name is clicked
-     $("body").on("click", ".gameName", function () {
-          let fullId = $(this).attr("id"); // Get the full id, e.g., "gameId3505"
-          let gameId = fullId.replace("gameId", ""); // Remove the 'gameId' prefix
-          let gameIdURL = "https://api.rawg.io/api/games/" + gameId + apiKey;
-          console.log(gameIdURL);
-          $(".gameCardsDiv").empty();
-          fetchGameIdURL(gameIdURL); // Call the function with the game ID
-     });
-});
-
 const apiKey = "?key=164d87e9b2364003ad69bc496d5e3d7f";
 
-// TODO: create wish list for games that is stored locally
-
+// TODO: add pages/previous next, etc
 // COMMENT: fetch for gameListURL
 function fetchGamesListURL(gameListURL) {
      $(".gameCardsDiv").empty();
@@ -99,7 +57,7 @@ function fetchGameIdURL(gameIdURL) {
                return response.json();
           })
           .then((game) => {
-               console.log(game)
+               console.log(game);
                // TODO: add developers <h3> ul li developers
                let singleGameCard = $("<div class='singleGameCard'>");
                singleGameCard.append(
@@ -129,30 +87,104 @@ function fetchGameIdURL(gameIdURL) {
           .catch((error) => console.error("Error:", error));
 }
 
+// TODO: create wish list for games that is stored locally
+
+$(function () {
+     // TODO: figure out how we want to display options
+     function createCheckboxMenu(id, options) {
+          let menu = $("<div>").attr("id", id).css({
+               display: "none",
+               position: "absolute",
+               "background-color": "#f9f9f9",
+               "box-shadow": "0px 8px 16px 0px rgba(0,0,0,0.2)",
+               padding: "12px 16px",
+               "z-index": "1",
+               width: "80%",
+          });
+
+          let checkboxDiv = $("<div>").css({
+               display: "grid",
+               "grid-template-columns": "repeat(auto-fill, minmax(145px, 1fr))",
+               gap: "10px",
+          });
+          options.forEach((option) => {
+               let checkbox = $("<input>")
+                    .attr("type", "checkbox")
+                    .attr("value", option.value)
+                    .on("click", function (event) {
+                         event.stopPropagation();
+                    });
+               let label = $("<label>")
+                    .css({ display: "flex", "align-items": "center", "white-space": "nowrap" })
+                    .text(option.text)
+                    .prepend(checkbox);
+               checkboxDiv.append(label);
+          });
+
+          menu.append(checkboxDiv);
+
+          // Add a close button to the menu
+          let closeButton = $("<button>")
+               .text("Close")
+               .on("click", function (event) {
+                    $("#" + id).hide();
+                    event.stopPropagation();
+               });
+
+          // Add a clear all button to the menu
+          let clearButton = $("<button>")
+               .text("Clear All")
+               .on("click", function (event) {
+                    $("#" + id + " input[type='checkbox']").prop("checked", false);
+                    event.stopPropagation();
+               });
+
+          // Create a div for the buttons and center it
+          let buttonDiv = $("<div>").css({ "text-align": "center" }).append(closeButton, clearButton);
+
+          menu.append(buttonDiv);
+
+          return menu;
+     }
+
+     $("#platformsCategory").append(createCheckboxMenu("platformsMenu", platforms));
+
+     // Show the tooltip when #platformsCategory is clicked
+     $("#platformsCategory").on("click", function () {
+          $("#platformsMenu").show();
+     });
+
+     // TODO: Finish by adding a button that fetches the checked platforms
+     // let checkedPlatforms = $("#platformsMenu input:checked").map(function() {
+     //      return this.value;
+     //  }).get();
 
 
-// // TODO: Finish platforms function
-// // fetch for platforms
-// function fetchPlatformsURL(platformsURL) {
-//      fetch(platformsURL)
-//           .then((response) => {
-//                if (!response.ok) {
-//                     $("#invalidEntry").show();
-//                     $("#invalidEntry").text("The response from the api failed. Please try again.");
-//                     throw new Error("HTTP error " + response.status);
-//                }
-//                return response.json();
-//           })
-//           .then((platforms) => {
-//                console.log(platforms);
-//                for (var i = 0; i < platforms.results.length; i++) {
-//                     console.log(
-//                          "{ text: '" + platforms.results[i].name + "', value: '" + platforms.results[i].id + "' }"
-//                     );
-//                }
-//           })
-//           .catch((error) => console.error("Error:", error));
-// }
+     // COMMENT: Fetches games by user input or returns a default order of list
+     $("#searchInput").on("submit", function (event) {
+          event.preventDefault();
+          let userInput = $('#searchInput input[name="searchInput"]').val();
+          let gameListURL = "https://api.rawg.io/api/games" + apiKey;
+          if (userInput) {
+               const searchQueryParam = `&search=${userInput}`;
+               gameListURL += searchQueryParam;
+          }
+          console.log(gameListURL);
+          fetchGamesListURL(gameListURL);
+     });
+
+     // COMMENT: on-click to fetch the details of a single game when the game's name is clicked
+     $("body").on("click", ".gameName", function () {
+          let fullId = $(this).attr("id"); // Get the full id, e.g., "gameId3505"
+          let gameId = fullId.replace("gameId", ""); // Remove the 'gameId' prefix
+          let gameIdURL = "https://api.rawg.io/api/games/" + gameId + apiKey;
+          console.log(gameIdURL);
+          $(".gameCardsDiv").empty();
+          fetchGameIdURL(gameIdURL); // Call the function with the game ID
+     });
+});
+
+
 
 // COMMENT: Genre URLS
 // const genreURL = "https://api.rawg.io/api/genres" + apiKey;
@@ -224,7 +256,6 @@ function fetchGameIdURL(gameIdURL) {
 // }
 
 // $(".gameSearch").append(createDropdown("platformsDropdown", platforms));
-
 
 // $("#searchInput").submit(function (event) {
 //      event.preventDefault();
