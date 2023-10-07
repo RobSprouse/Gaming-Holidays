@@ -1,20 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- COMMENT: Meta Data -->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Holidays</title>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- COMMENT: Linked Style Sheets -->
+     <link rel="stylesheet" href="../assets/css/normalize.css">
+     <link rel="stylesheet" href="style.css">
+     <title>Gaming Holidays</title>
 </head>
 
-<body>
-    <h1>Gaming Holidays</h1>
-    <p>This is a paragraph.</p>
-    <h1>Steam API Example</h1>
-    <div id="output"></div>
+<!-- COMMENT: Body Section -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="assets/js/script.js"></script>
+<body>
+
+     <!-- COMMENT: Header with Search-->
+     <header>
+          <h1>Gaming Holidays</h1>
+          <p id="instructionsP">
+               <span id="instructionsSpan">Directions:</span>
+          </p>
+          <section class="gameSearch">
+               <h3>Search for a Game:
+               </h3>
+               <form id="searchInput">
+                    <input type="text" name="searchInput" placeholder="Game Name" id="searchInput">
+                    <input type="submit" value="Search">
+               </form>
+          </section>
+     </header>
+
+     <!-- COMMENT: Main Section-->
+     <main>
+          <!-- COMMENT: Game card display area -->
+          <section class="categories">
+               <h2>Search Categories</h2>
+               <ul>
+                    <li><span id="fetchAllGames">All Games</span></li>
+                    <li><span id="platformsCategory">Platforms</span></li>
+               </ul>
+          </section>
+          <!-- COMMENT: Game card display area -->
+          <section class="displayedResults">
+               <section class="gameCardsDiv">
+                    <!-- COMMENT: Where Game Cards will be appended -->
+               </section>
+               <section class="holidayDates"></section>
+          </section>
+     </main>
+     <!-- COMMENT: Footer -->
+     <footer>
+          footer
+     </footer>
+
+     <!-- COMMENT: JS Scripts -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="../assets/js/dropdowns.js"></script>
+     <script src="../assets/js/script.js"></script>
+     <!-- <script src="testscript.js"></script> -->
 </body>
 
 </html>
