@@ -13,14 +13,27 @@ var holidaySearchButton = document.querySelector("#search-button");
 var month = 1;
 var year = 2022;
 var country = "US";
+var day = 1;
 
 // Create variables for the section of the URL + the country
 var countryForURL = `&country=` + country;
 var yearForURL = `&year=` + year;
 var monthForURL = '&month=' + month;
+var dayForURL = '&day=' + day;
 
 // Create the url in an array
+/*
 const urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb",countryForURL,yearForURL,monthForURL,"`"];
+*/
+
+var urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb","`"];
+
+// Add the various options to the array, allowing for specific inputs
+urlArray.splice(2,0, countryForURL);
+urlArray.splice(2,0, yearForURL);
+urlArray.splice(2,0, monthForURL);
+
+console.log(urlArray);
 
 // Turn the url into a string
 let holidayUrl = urlArray.join("");
