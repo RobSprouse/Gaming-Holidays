@@ -92,7 +92,7 @@ $(function () {
      function createCheckboxMenu(checkboxMenu, options) {
           let menu = $("<div>").attr("id", checkboxMenu).css({
                display: "none",
-               position: "fixed", // Changed from 'absolute' to 'fixed'
+               position: "fixed",
                "background-color": "#f9f9f9",
                "box-shadow": "0px 8px 16px 0px rgba(0,0,0,0.2)",
                padding: "12px 16px",
@@ -147,7 +147,6 @@ $(function () {
      $("#genresCategory").append(createCheckboxMenu("genresMenu", genres));
      $("#platformsCategory").append(createCheckboxMenu("platformsMenu", platforms));
 
-     // Show the tooltip when #platformsCategory is clicked
      $("#platformsCategory").on("click", function () {
           $("#platformsMenu").show();
      });
