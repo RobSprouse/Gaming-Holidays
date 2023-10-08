@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en"><!-- COMMENT: Meta Data -->
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- COMMENT: Linked Style Sheets -->
+     <link rel="stylesheet" href="assets/css/normalize.css">
+     <link rel="stylesheet" href="assets/css/style.css">
+     <title>Gaming Holidays</title>
+     <!-- TODO: add search keyworks -->
+</head>
+
+<!-- COMMENT: Body Section -->
+
+<body>
+
+     <!-- COMMENT: Header with Search-->
+     <header>
+          <h1>Gaming Holidays</h1>
+          <p id="instructionsP">
+               <span id="instructionsSpan">Directions:</span>
+          </p>
+          <section class="gameSearch">
+               <h3>Search for a Game:
+               </h3>
+               <form id="searchInput">
+                    <input type="text" name="searchInput" placeholder="Game Name" id="searchInput">
+                    <input type="submit" value="Search">
+               </form>
+               <label for="searchType"></label>
+               <select id="searchType" name="searchType">
+                    <option value="normal">Normal Search</option>
+                    <option value="precise">Precise Search</option>
+                    <option value="exact">Exact Search</option>
+               </select>
+               <button id="platformsCategory">Platforms<div id="platformsMenu"
+                         style="display: none; position: fixed; background-color: rgb(249, 249, 249); box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px; padding: 12px 16px; z-index: 50; width: 80%; height: 30%; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: auto;">
+                         <div
+                              style="display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px;">
+                              <label for="checkbox111"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="111">3DO</label><label for="checkbox21"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="21">Android</label><label for="checkbox41"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="41">Apple II</label><label for="checkbox23"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="23">Atari 2600</label><label for="checkbox31"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="31">Atari 5200</label><label for="checkbox28"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="28">Atari 7800</label><label for="checkbox25"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="25">Atari 8-bit</label><label for="checkbox22"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="22">Atari Flashback</label><label for="checkbox46"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="46">Atari Lynx</label><label for="checkbox34"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="34">Atari ST</label><label for="checkbox50"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="50">Atari XEGS</label><label for="checkbox55"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="55">Classic Macintosh</label><label for="checkbox166"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="166">Commodore / Amiga</label><label for="checkbox106"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="106">Dreamcast</label><label for="checkbox26"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="26">Game Boy</label><label for="checkbox24"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="24">Game Boy Advance</label><label for="checkbox43"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="43">Game Boy Color</label><label for="checkbox77"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="77">Game Gear</label><label for="checkbox105"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="105">GameCube</label><label for="checkbox167"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="167">Genesis</label><label for="checkbox112"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="112">Jaguar</label><label for="checkbox6"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="6">Linux</label><label for="checkbox49"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="49">NES</label><label for="checkbox12"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="12">Neo Geo</label><label for="checkbox8"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="8">Nintendo 3DS</label><label for="checkbox83"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="83">Nintendo 64</label><label for="checkbox9"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="9">Nintendo DS</label><label for="checkbox13"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="13">Nintendo DSi</label><label for="checkbox7"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="7">Nintendo Switch</label><label for="checkbox4"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="4">PC</label><label for="checkbox19"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="19">PS Vita</label><label for="checkbox17"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="17">PSP</label><label for="checkbox27"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="27">PlayStation</label><label for="checkbox15"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="15">PlayStation 2</label><label for="checkbox16"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="16">PlayStation 3</label><label for="checkbox18"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="18">PlayStation 4</label><label for="checkbox187"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="187">PlayStation 5</label><label for="checkbox117"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="117">SEGA 32X</label><label for="checkbox119"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="119">SEGA CD</label><label for="checkbox74"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="74">SEGA Master System</label><label for="checkbox107"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="107">SEGA Saturn</label><label for="checkbox79"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="79">SNES</label><label for="checkbox11"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="11">Wii</label><label for="checkbox10"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="10">Wii U</label><label for="checkbox80"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="80">Xbox</label><label for="checkbox14"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="14">Xbox 360</label><label for="checkbox1"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="1">Xbox One</label><label for="checkbox186"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="186">Xbox Series S/X</label><label for="checkbox3"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="3">iOS</label><label for="checkbox5"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="5">macOS</label></div>
+                         <div style="text-align: center;"><button>Close</button><button>Clear All</button></div>
+                    </div></button>
+               <button id="genresCategory">Genres<div id="genresMenu"
+                         style="display: none; position: fixed; background-color: rgb(249, 249, 249); box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px; padding: 12px 16px; z-index: 50; width: 80%; height: 30%; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: auto;">
+                         <div
+                              style="display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 10px;">
+                              <label for="checkbox4"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="4">Action</label><label for="checkbox3"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="3">Adventure</label><label for="checkbox11"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="11">Arcade</label><label for="checkbox28"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="28">Board Games</label><label for="checkbox17"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="17">Card</label><label for="checkbox40"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="40">Casual</label><label for="checkbox34"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="34">Educational</label><label for="checkbox19"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="19">Family</label><label for="checkbox6"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="6">Fighting</label><label for="checkbox51"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="51">Indie</label><label for="checkbox59"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="59">Massively Multiplayer</label><label for="checkbox83"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="83">Platformer</label><label for="checkbox7"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="7">Puzzle</label><label for="checkbox5"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="5">RPG</label><label for="checkbox1"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="1">Racing</label><label for="checkbox2"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="2">Shooter</label><label for="checkbox14"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="14">Simulation</label><label for="checkbox15"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="15">Sports</label><label for="checkbox10"
+                                   style="display: flex; align-items: center; white-space: nowrap;"><input
+                                        type="checkbox" value="10">Strategy</label></div>
+                         <div style="text-align: center;"><button>Close</button><button>Clear All</button></div>
+                    </div></button>
+
+          </section>
+     </header>
+
+     <!-- COMMENT: Main Section-->
+     <main>
+          <!-- COMMENT: Game card display area -->
+          <section class="categories">
+               <h2>Search Categories</h2>
+               <ul>
+                    <li><span id="fetchAllGames">All Games</span></li>
+                    <!-- <li><span id="platformsCategory">Platforms</span></li> -->
+               </ul>
+          </section>
+          <!-- COMMENT: Game card display area -->
+          <section class="displayedResults">
+               <section class="gameCardsDiv">
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg">
+                         <h2 class="gameName" id="gameId3498">Grand Theft Auto V</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2013-09-17</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                              <li>PlayStation 5</li>
+                              <li>Xbox One</li>
+                              <li>PlayStation 4</li>
+                              <li>Xbox Series S/X</li>
+                              <li>Xbox 360</li>
+                              <li>PlayStation 3</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/74c/74cee7e8901db389e699454964207719.jpg">
+                         <h2 class="gameName" id="gameId11313">GRAV</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2015-01-08</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/bb1/bb1a401f527f204c75e2a1ad8fe4fe3f.jpg">
+                         <h2 class="gameName" id="gameId44151">Grav Blazer</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2017-07-17</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/ff3/ff3ffc7a249215f541f5f69a101b757f.jpg">
+                         <h2 class="gameName" id="gameId45917">Grav Blazer Squared</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2017-09-05</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/games/5fa/5fae5fec3c943179e09da67a4427d68f.jpg">
+                         <h2 class="gameName" id="gameId432">Grand Theft Auto III</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2001-10-22</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                              <li>PlayStation 4</li>
+                              <li>iOS</li>
+                              <li>Android</li>
+                              <li>macOS</li>
+                              <li>Xbox</li>
+                              <li>PlayStation 2</li>
+                              <li>PS Vita</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/games/13a/13a528ac9cf48bbb6be5d35fe029336d.jpg">
+                         <h2 class="gameName" id="gameId430">Grand Theft Auto: Vice City</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2002-10-27</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                              <li>iOS</li>
+                              <li>Android</li>
+                              <li>macOS</li>
+                              <li>Xbox</li>
+                              <li>PlayStation 2</li>
+                              <li>PS Vita</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/d75/d751c923e085e5c3de4a4fac582c6217.jpg">
+                         <h2 class="gameName" id="gameId727426">Gav-Gav Odyssey</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2022-01-25</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/games/786/786f9a212646c793ccbad196cba2cf36.jpg">
+                         <h2 class="gameName" id="gameId52998">Grand Theft Auto</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>1997-10-21</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                              <li>PlayStation</li>
+                              <li>Game Boy Color</li>
+                              <li>Game Boy</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/c4a/c4a6eb7fd45f24421687499433f57755.jpg">
+                         <h2 class="gameName" id="gameId791451">Grav-8T</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2022-05-19</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>Web</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/7d1/7d17e44bdf98fc29631e6a8cec00b9c0.jpg">
+                         <h2 class="gameName" id="gameId559546">GRAV-BLASTER</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2021-02-17</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                              <li>Web</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/87a/87a00564b2892008d71d3900423e3057.jpg">
+                         <h2 class="gameName" id="gameId499146">Grav-Jump</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2020-09-25</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>Web</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/12f/12f7a679df3a769b3e42d11c5de026d6.jpg">
+                         <h2 class="gameName" id="gameId168595">grav-racer</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2018-08-16</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>Web</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/661/66177a49b704ae55b34a28245aac8372.jpg">
+                         <h2 class="gameName" id="gameId691853">GTA6-Mobile</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2021-11-06</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>Web</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/227/227599b47cdc712d62bb2f5b79591c83.jpg">
+                         <h2 class="gameName" id="gameId190462">Grav-Tech</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2017-09-23</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/2e9/2e9023ff93a791fddf301d5b2e3d0234.jpg">
+                         <h2 class="gameName" id="gameId366007">Grav-Ball</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2019-08-12</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/efd/efd76e2ce6e81f41c447085e150d0b73.jpg">
+                         <h2 class="gameName" id="gameId465081">GRAV-RAT</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2020-07-12</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>Web</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/games/623/623eff489e5fcfd3d684e902d3efad8b.jpg">
+                         <h2 class="gameName" id="gameId52997">Grand Theft Auto 2</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>1999-10-22</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                              <li>PlayStation 3</li>
+                              <li>PlayStation</li>
+                              <li>Game Boy Color</li>
+                              <li>Dreamcast</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/games/bbd/bbd7af2d6dab31e0b3bbfb5f63575ab8.jpg">
+                         <h2 class="gameName" id="gameId42336">Grand Theft Auto Online</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2013-10-01</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                              <li>PlayStation 5</li>
+                              <li>Xbox One</li>
+                              <li>PlayStation 4</li>
+                              <li>PlayStation 3</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/games/960/960b601d9541cec776c5fa42a00bf6c4.jpg">
+                         <h2 class="gameName" id="gameId416">Grand Theft Auto: San Andreas</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2004-10-26</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                              <li>Xbox One</li>
+                              <li>PlayStation 4</li>
+                              <li>iOS</li>
+                              <li>Android</li>
+                              <li>macOS</li>
+                              <li>Xbox 360</li>
+                              <li>Xbox</li>
+                              <li>PlayStation 3</li>
+                              <li>PlayStation 2</li>
+                         </ul>
+                    </div>
+                    <div class="minGameCard"><img class="smallBackgroundImage"
+                              src="https://media.rawg.io/media/screenshots/cda/cdad9d50d58f958d6add7cc8cc8f8e8b.jpg">
+                         <h2 class="gameName" id="gameId524742">Grav-A-Sketch</h2>
+                         <h3 class="releaseDateHeader">Release Date:</h3>
+                         <ul class="releaseDate">
+                              <li>2020-11-29</li>
+                         </ul>
+                         <h3>Platforms</h3>
+                         <ul class="platformName">
+                              <li>PC</li>
+                         </ul>
+                    </div>
+               </section>
+               <section class="holidayDates"></section>
+          </section>
+     </main>
+     <!-- COMMENT: Footer -->
+     <footer>
+          footer
+     </footer>
+
+     <!-- COMMENT: JS Scripts -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="./assets/js/dropdowns.js"></script>
+     <script src="./assets/js/script.js"></script>
+
+
+
+</body>
+
+</html>
