@@ -9,17 +9,25 @@ var apiKey = '6dc87409-6cac-4849-ad17-e0f4fc8a6deb'
 var holidaysList = document.getElementById("test-me");
 var holidaySearchButton = document.querySelector("#search-button");
 
-countryForURL = `&country=US`;
-yearForURL = `&year=2022`;
+// Create variables for the month, year, and country
+var month = 1;
+var year = 2022;
+var country = "US";
 
-const urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb",countryForURL,yearForURL,"`"];
+// Create variables for the section of the URL + the country
+var countryForURL = `&country=` + country;
+var yearForURL = `&year=` + year;
+var monthForURL = '&month=' + month;
 
+// Create the url in an array
+const urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb",countryForURL,yearForURL,monthForURL,"`"];
+
+// Turn the url into a string
 let holidayUrl = urlArray.join("");
 
 console.log(holidayUrl);
 
 
-const holidayUrl2 = `https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb` + countryForURL + yearForURL ;
 
 /*
 console.log(holidayUrl)
