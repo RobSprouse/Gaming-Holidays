@@ -216,3 +216,5 @@ $(function () {
           fetchGameIdURL(gameIdURL);
      });
 });
+
+// a fetch that mimics the fetch games list display of values when gameList.next ( the url of the next page of games ) is clicked and returns page x results
