@@ -32,6 +32,7 @@ var urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac
 urlArray.splice(2,0, countryForURL);
 urlArray.splice(2,0, yearForURL);
 urlArray.splice(2,0, monthForURL);
+urlArray.splice(2,0, dayForURL);
 
 console.log(urlArray);
 
@@ -121,10 +122,13 @@ logData();
 
 
 function getOverrideInputs(){
-holidayCountry = document.getElementById("country-input").value;
-holidayYear = document.getElementById("year-input").value;
+holidayCountry = document.getElementById("countryInput").value;
+
+
+/*holidayYear = document.getElementById("year-input").value;
 console.log(countryInput);
-console.log(yearInput);
+console.log(yearInput);*/
 }
+
 
 holidaySearchButton.addEventListener("click", getOverrideInputs);
