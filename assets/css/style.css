@@ -14,7 +14,6 @@
      box-sizing: border-box;
      padding: 0;
      margin: 0;
-     color: #413a3a;
      list-style: none;
 }
 
@@ -25,6 +24,7 @@ body {
      font-family: var(--Body-font);
      border: 1px solid #ffcb9a;
      background-color: #116466;
+     color: #d1e8e2;
 }
 
 /* COMMENT: Header with City Search */
@@ -43,7 +43,7 @@ header {
 }
 
 #instructionsSpan {
-     color: blue;
+     color: #d1e8e2;
      font-weight: bold;
      font-size: 20px;
 }
@@ -64,6 +64,8 @@ header section {
      align-items: center;
      text-align: center;
      padding: 1em 0 0.5em 0;
+     border:   #2c3531;
+     
 }
 
 #searchInput input[type=text] {
@@ -88,6 +90,7 @@ main {
      border: 1px solid #ffcb9a;
      padding: 0.5em;
      min-width: 8em;
+     color: #d1e8e2;
 }
 
 .categories li {
@@ -113,6 +116,8 @@ main {
      flex-direction: row;
      flex-wrap: wrap;
      justify-content: space-around;
+     color: #d1e8e2;
+
 }
 
 .smallBackgroundImage {
