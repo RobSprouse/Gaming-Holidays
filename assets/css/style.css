@@ -9,7 +9,7 @@
           margin: 5% 5%;
      }
 } */
-
+/* #2c3531, #116466, #d9b08c, #ffcb9a, #d1e8e2 */
 * {
      box-sizing: border-box;
      padding: 0;
@@ -23,16 +23,16 @@ body {
      display: flex;
      flex-direction: column;
      font-family: var(--Body-font);
-     border: 1px solid white;
-     background-color: black;
+     border: 1px solid #ffcb9a;
+     background-color: #116466;
 }
 
 /* COMMENT: Header with City Search */
 header {
      display: flex;
      flex-direction: column;
-     background-color: grey;
-     border: 1px solid white;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
      align-items: center;
 
 }
@@ -84,8 +84,8 @@ main {
      flex-direction: column;
      flex-basis: 20%;
      align-items: center;
-     background-color: rgb(88, 88, 88);
-     border: 1px solid white;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
      padding: 0.5em;
      min-width: 8em;
 }
@@ -99,8 +99,8 @@ main {
      display: flex;
      flex: 1 1 100%;
      flex-direction: column;
-     background-color: grey;
-     border: 1px solid white;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
      min-height: 50em;
 
 
@@ -127,7 +127,7 @@ main {
      min-width: 8em;
      min-height: 10em;
      margin: 0.5em 0.5em;
-     background-color: rgb(73, 73, 73);
+     background-color: #116466;
      padding: 0.5em;
      justify-content: space-between;
 
@@ -142,12 +142,12 @@ main {
 /* COMMENT: Footer */
 footer {
      display: flex;
-     background-color: rgb(88, 88, 88);
-     border: 1px solid white;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
      min-height: 4em;
 }
 .minGameCard {
-     border: 3px solid white;
+     border: 3px solid #ffcb9a;
      border-radius: 5px 5px 5px 5px;
      
 }
