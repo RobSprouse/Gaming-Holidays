@@ -1,6 +1,5 @@
 // @ts-uncheck
 const apiKey = "?key=164d87e9b2364003ad69bc496d5e3d7f";
-// TODO: add something to let the user know if the reponse returns 0 results
 // TODO: add pages/previous next, etc
 // COMMENT: fetch for gameListURL`
 function fetchGamesListURL(gameListURL) {
@@ -8,13 +7,21 @@ function fetchGamesListURL(gameListURL) {
      fetch(gameListURL)
           .then((response) => {
                if (!response.ok) {
-                    $("#invalidEntry").show();
-                    $("#invalidEntry").text("The response from the api failed. Please try again.");
+                    $(".gameCardsDiv").append("<h1>").text("The api to search for games has failed. Please try again.");
                     throw new Error("HTTP error " + response.status);
                }
                return response.json();
           })
           .then((gameList) => {
+               if (gameList.count === 0) {
+                    $(".gameCardsDiv")
+                         .append("<h1>")
+                         .text(
+                              "You're search has returned 0 results. Please widen the criteria to find the games you're looking for."
+                         );
+                    return;
+               }
+               console.log(gameList);
                let gameListDiv = $("<div class='gameListDiv'>");
                $(".gardCardsDiv").append(gameListDiv);
                for (var i = 0; i < gameList.results.length; i++) {
@@ -51,7 +58,7 @@ function fetchGameIdURL(gameIdURL) {
      fetch(gameIdURL)
           .then((response) => {
                if (!response.ok) {
-                    // TODO: Display text when the fetch fails, input is empty
+                    $(".gameCardsDiv").append("<h1>").text("The api to search for games has failed. Please try again.");
                     throw new Error("HTTP error " + response.status);
                }
                return response.json();
@@ -72,7 +79,7 @@ function fetchGameIdURL(gameIdURL) {
                          })
                     )
                );
-               console.log(game.developers)
+               console.log(game.developers);
                singleGameCard.append("<h3>Platforms</h3>");
                singleGameCard.append(
                     $("<ul class='platformName'>").append(
@@ -167,7 +174,7 @@ $(function () {
           event.preventDefault();
           let userInput = $('#searchInput input[name="searchInput"]').val();
           let gameListURL = "https://api.rawg.io/api/games" + apiKey;
-          let searchType = $("#searchType").val(); // get the selected search type
+          let searchType = $("#searchType").val();
           if (searchType === "normal") {
                gameListURL += "&search=";
           } else if (searchType === "precise") {
