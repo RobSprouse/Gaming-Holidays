@@ -2,7 +2,7 @@
 const apiKey = "?key=164d87e9b2364003ad69bc496d5e3d7f";
 // TODO: add something to let the user know if the reponse returns 0 results
 // TODO: add pages/previous next, etc
-// COMMENT: fetch for gameListURL
+// COMMENT: fetch for gameListURL`
 function fetchGamesListURL(gameListURL) {
      $(".gameCardsDiv").empty();
      fetch(gameListURL)
@@ -57,7 +57,6 @@ function fetchGameIdURL(gameIdURL) {
                return response.json();
           })
           .then((game) => {
-               // TODO: add developers h3 ul li developers
                let singleGameCard = $("<div class='singleGameCard'>");
                singleGameCard.append(
                     $("<img>", { class: "backgroundImage", src: game.background_image, alt: "background image" })
@@ -65,6 +64,15 @@ function fetchGameIdURL(gameIdURL) {
                singleGameCard.append($("<h2 class='gameName' id='gameId" + game.id + "'>").text(game.name));
                singleGameCard.append($("<h3 class='releaseDateHeader'>").text("Release Date:"));
                singleGameCard.append($("<ul class='releaseDate'>")).append($("<li>").text(game.released));
+               singleGameCard.append("<h3>Developers</h3>");
+               singleGameCard.append(
+                    $("<ul class='developerName'>").append(
+                         $.map(game.developers, function (developers) {
+                              return $("<li>").text(developers.name);
+                         })
+                    )
+               );
+               console.log(game.developers)
                singleGameCard.append("<h3>Platforms</h3>");
                singleGameCard.append(
                     $("<ul class='platformName'>").append(
@@ -87,7 +95,6 @@ function fetchGameIdURL(gameIdURL) {
 }
 
 // TODO: create wish list for games that is stored locally
-
 $(function () {
      function createCheckboxMenu(checkboxMenu, options) {
           let menu = $("<div>").attr("id", checkboxMenu).css({
@@ -185,8 +192,6 @@ $(function () {
           if (genresArray.length > 0) {
                gameListURL += `&genres=${genresArray.join(",")}`;
           }
-
-          console.log(gameListURL);
           fetchGamesListURL(gameListURL);
      });
 
@@ -204,4 +209,3 @@ $(function () {
           fetchGameIdURL(gameIdURL);
      });
 });
-
