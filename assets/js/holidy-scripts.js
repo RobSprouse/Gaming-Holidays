@@ -61,7 +61,7 @@ fetch(holidayUrl)
 
 */
 
-/*
+
 
  var testData;
 
@@ -117,7 +117,7 @@ function getCountry(){
 
 logData();
 
-*/
+
 
 
 
