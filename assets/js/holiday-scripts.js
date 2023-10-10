@@ -3,43 +3,41 @@ var holidayYear = '2022';
 var holidayMonth = '1';
 var holidayDay = '1';
 var display = document.querySelector(".base-section");
-var apiKey = '6dc87409-6cac-4849-ad17-e0f4fc8a6deb'
+//var holidayApiKey = '6dc87409-6cac-4849-ad17-e0f4fc8a6deb'
 
 // Xpert assistant help with setting up API 
 var holidaysList = document.getElementById("test-me");
 var holidaySearchButton = document.querySelector("#search-button");
 
-// Create variables for the month, year, and country
-var month = 1;
-var year = 2022;
-var country = "US";
-var day = 1;
+function fetchHolidayURL(month, day, year, country){
 
-// Create variables for the section of the URL + the country
-var countryForURL = `&country=` + country;
-var yearForURL = `&year=` + year;
-var monthForURL = '&month=' + month;
-var dayForURL = '&day=' + day;
+    // Create variables for the section of the URL + the country
+    var countryForURL = `&country=` + country;
+    var yearForURL = `&year=` + year;
+    var monthForURL = '&month=' + month;
+    var dayForURL = '&day=' + day;
 
-// Create the url in an array
-/*
-const urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb",countryForURL,yearForURL,monthForURL,"`"];
-*/
+    // Create the url in an array
+    /*
+    const urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb",countryForURL,yearForURL,monthForURL,"`"];
+    */
 
-var urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb","`"];
+    var urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb","`"];
 
-// Add the various options to the array, allowing for specific inputs
-urlArray.splice(2,0, countryForURL);
-urlArray.splice(2,0, yearForURL);
-urlArray.splice(2,0, monthForURL);
-urlArray.splice(2,0, dayForURL);
+    // Add the various options to the array, allowing for specific inputs
+    urlArray.splice(2,0, countryForURL);
+    urlArray.splice(2,0, yearForURL);
+    urlArray.splice(2,0, monthForURL);
+    urlArray.splice(2,0, dayForURL);
 
-console.log(urlArray);
+    console.log(urlArray);
 
-// Turn the url into a string
-let holidayUrl = urlArray.join("");
+    // Turn the url into a string
+    let holidayUrl = urlArray.join("");
+    console.log(holidayUrl);
+}
 
-console.log(holidayUrl);
+fetchHolidayURL();
 
 
 
@@ -77,8 +75,7 @@ function logData()
 function proData()
 {
     console.log(testData);
-}
-
+}/*
 function getCountry(){
     fetch(countryUrl)
     .then(response => response.json())
@@ -118,17 +115,12 @@ function getCountry(){
 logData();
 
 
-
+*/
 
 
 function getOverrideInputs(){
 holidayCountry = document.getElementById("countryInput").value;
-
-
-/*holidayYear = document.getElementById("year-input").value;
-console.log(countryInput);
-console.log(yearInput);*/
 }
-
+console.log(holidayCountry);
 
 holidaySearchButton.addEventListener("click", getOverrideInputs);
