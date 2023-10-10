@@ -19,25 +19,18 @@ function fetchHolidayURL(month, day, year, country){
     var monthForURL = '&month=' + month;
     var dayForURL = '&day=' + day;
 
-    var urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb","`"];
+    var holidayURL = "https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb"+ countryForURL + yearForURL + monthForURL + dayForURL;
 
-    // Add the various options to the array, allowing for specific inputs
-    urlArray.splice(2,0, dayForURL);
-    urlArray.splice(2,0, monthForURL);
-    urlArray.splice(2,0, yearForURL);
-    urlArray.splice(2,0, countryForURL);
+    console.log(holidayURL);
 
-    console.log(urlArray);
 
-    // Turn the url into a string
-    holidayUrl = urlArray.join("");
 }
 
 
 fetchHolidayURL(1,1,2022,"US");
 
 
-fetch(holidayUrl)
+fetch(holidayURL)
   .then(response => response.json())
   .then(data => {
     // Process the response data
