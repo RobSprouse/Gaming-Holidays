@@ -3,13 +3,6 @@
      --Header-footer-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
      --Body-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
 }
-
-/* @media screen {
-     body {
-          margin: 5% 5%;
-     }
-} */
-/* #2c3531, #116466, #d9b08c, #ffcb9a, #d1e8e2 */
 * {
      box-sizing: border-box;
      padding: 0;
