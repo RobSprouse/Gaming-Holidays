@@ -4,17 +4,16 @@
      --Body-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
 }
 
-@media screen {
+/* @media screen {
      body {
           margin: 5% 5%;
      }
-}
-
+} */
+/* #2c3531, #116466, #d9b08c, #ffcb9a, #d1e8e2 */
 * {
      box-sizing: border-box;
      padding: 0;
      margin: 0;
-     color: #413a3a;
      list-style: none;
 }
 
@@ -23,16 +22,17 @@ body {
      display: flex;
      flex-direction: column;
      font-family: var(--Body-font);
-     border: 1px solid white;
-     background-color: black;
+     border: 1px solid #ffcb9a;
+     background-color: #116466;
+     color: #d1e8e2;
 }
 
 /* COMMENT: Header with City Search */
 header {
      display: flex;
      flex-direction: column;
-     background-color: grey;
-     border: 1px solid white;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
      align-items: center;
 
 }
@@ -43,7 +43,7 @@ header {
 }
 
 #instructionsSpan {
-     color: blue;
+     color: #d1e8e2;
      font-weight: bold;
      font-size: 20px;
 }
@@ -64,6 +64,8 @@ header section {
      align-items: center;
      text-align: center;
      padding: 1em 0 0.5em 0;
+     border:   #2c3531;
+     
 }
 
 #searchInput input[type=text] {
@@ -84,10 +86,11 @@ main {
      flex-direction: column;
      flex-basis: 20%;
      align-items: center;
-     background-color: rgb(88, 88, 88);
-     border: 1px solid white;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
      padding: 0.5em;
      min-width: 8em;
+     color: #d1e8e2;
 }
 
 .categories li {
@@ -99,8 +102,8 @@ main {
      display: flex;
      flex: 1 1 100%;
      flex-direction: column;
-     background-color: grey;
-     border: 1px solid white;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
      min-height: 50em;
 
 
@@ -113,6 +116,8 @@ main {
      flex-direction: row;
      flex-wrap: wrap;
      justify-content: space-around;
+     color: #d1e8e2;
+
 }
 
 .smallBackgroundImage {
@@ -127,7 +132,7 @@ main {
      min-width: 8em;
      min-height: 10em;
      margin: 0.5em 0.5em;
-     background-color: rgb(73, 73, 73);
+     background-color: #116466;
      padding: 0.5em;
      justify-content: space-between;
 
@@ -142,7 +147,24 @@ main {
 /* COMMENT: Footer */
 footer {
      display: flex;
-     background-color: rgb(88, 88, 88);
-     border: 1px solid white;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
      min-height: 4em;
+}
+.minGameCard {
+     border: 3px solid #ffcb9a;
+     border-radius: 5px 5px 5px 5px;
+     
+}
+#gamingHolidays {
+     font-size: 30px;
+}
+#instructionsSpan {
+     font-size: 30px;
+}
+.gameSearch {
+     font-size: 25px;
+}
+.categories {
+     font-size: 20px;
 }

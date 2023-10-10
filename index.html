@@ -8,6 +8,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- COMMENT: Linked Style Sheets -->
      <link rel="stylesheet" href="assets/css/normalize.css">
+     <link rel="stylesheet" href="assets/css/bulma.min.css">
      <link rel="stylesheet" href="assets/css/style.css">
      <title>Gaming Holidays</title>
      <!-- TODO: add search keyworks -->
@@ -19,7 +20,7 @@
 
      <!-- COMMENT: Header with Search-->
      <header>
-          <h1>Gaming Holidays</h1>
+          <h1 id="gamingHolidays">Gaming Holidays</h1>
           <p id="instructionsP">
                <span id="instructionsSpan">Directions:</span>
           </p>
@@ -27,17 +28,20 @@
                <h3>Search for a Game:
                </h3>
                <form id="searchInput">
-                    <input type="text" name="searchInput" placeholder="Game Name" id="searchInput">
-                    <input type="submit" value="Search">
+                    <!-- added classes -->
+                    <input class="input is-warning" type="text" name="searchInput" placeholder="Game Name" id="searchInput">
+                    <input class="button is-warning is-light" type="submit" value="Search">
                </form>
                <label for="searchType"></label>
-               <select id="searchType" name="searchType">
+               <!-- added classes -->
+               <select class="searchType button is-warning is-light" id="searchType" name="searchType">
                    <option value="normal">Normal Search</option>
                    <option value="precise">Precise Search</option>
                    <option value="exact">Exact Search</option>
-               </select>               
-               <button id="platformsCategory">Platforms</button>
-               <button id="genresCategory">Genres</button>
+               </select>
+               <!-- added classes -->
+               <button class="platformsCategory button is-warning is-light" id="platformsCategory">Platforms</button>
+               <button class="genresCategory button is-warning is-light" id="genresCategory">Genres</button>
 
           </section>
      </header>
