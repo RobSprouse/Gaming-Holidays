@@ -5,6 +5,7 @@ var holidayDay = '1';
 var holidayUrl;
 var holidayData;
 var display = document.querySelector(".base-section");
+var holidayList = document.getElementById("holidayListItem");
 //var holidayApiKey = '6dc87409-6cac-4849-ad17-e0f4fc8a6deb'
 
 // Xpert assistant help with setting up API 
@@ -19,18 +20,22 @@ function fetchHolidayURL(month, day, year, country){
     var monthForURL = '&month=' + month;
     var dayForURL = '&day=' + day;
 
-    var holidayURL = "https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb"+ countryForURL + yearForURL + monthForURL + dayForURL;
+    // Create the url based on provided variables
+    var createHoliday = "https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb"+ countryForURL + yearForURL + monthForURL + dayForURL;
 
-    console.log(holidayURL);
+    // Log the url in the console
+    console.log(createHoliday);
 
-
+    // Assign url to golobal variable
+    // NOTE - this step is necessary to prevent cors errors
+    holidayUrl = createHoliday;
 }
 
 
 fetchHolidayURL(1,1,2022,"US");
 
 
-fetch(holidayURL)
+fetch(holidayUrl)
   .then(response => response.json())
   .then(data => {
     // Process the response data
@@ -41,6 +46,15 @@ fetch(holidayURL)
     {
     // use the previously defined index number to log the name of each holiday
     console.log(holidayData.holidays[i].name);
+
+    // create local variable that adds list items to HTML
+    var holidayItem = document.createElement('li');
+
+    // loop through each item
+    holidayItem.innerText = holidayData.holidays[i].name;
+
+    // append list item to the section in the html
+    holidayList.appendChild(holidayItem);
     }
   })
   .catch(error => {
