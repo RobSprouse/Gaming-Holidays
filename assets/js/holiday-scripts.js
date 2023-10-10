@@ -22,24 +22,22 @@ function fetchHolidayURL(month, day, year, country){
     var urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb","`"];
 
     // Add the various options to the array, allowing for specific inputs
-    urlArray.splice(2,0, countryForURL);
-    urlArray.splice(2,0, yearForURL);
-    urlArray.splice(2,0, monthForURL);
     urlArray.splice(2,0, dayForURL);
+    urlArray.splice(2,0, monthForURL);
+    urlArray.splice(2,0, yearForURL);
+    urlArray.splice(2,0, countryForURL);
 
     console.log(urlArray);
 
     // Turn the url into a string
     holidayUrl = urlArray.join("");
-
 }
 
-console.log(holidayUrl);
 
-fetchHolidayURL(1,1,2023,"US");
+fetchHolidayURL(1,1,2022,"US");
 
 
-fetch(`https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb&country=US&year=2022&day=1&month=1`)
+fetch(holidayUrl)
   .then(response => response.json())
   .then(data => {
     // Process the response data
@@ -51,7 +49,6 @@ fetch(`https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f
     // use the previously defined index number to log the name of each holiday
     console.log(holidayData.holidays[i].name);
     }
-    //console.log(holidayData.holidays[0].name);
   })
   .catch(error => {
     // Handle any errors
