@@ -131,8 +131,8 @@ const genres =
     }
 ]
 
-// list of countries for the countries dropdown
-const countries =
+// list of countries for the countries dropdown, retrieved from Holiday API
+const countriesList =
 [
 {code: "AD", name: "Andorra"},
 {code: "AE", name: "United Arab Emirates"},
