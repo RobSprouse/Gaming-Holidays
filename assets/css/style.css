@@ -124,8 +124,8 @@ main {
      max-width: 200px;
 }
 
-/* COMMENT: Individual Game Cards */
-.singleGameCard {
+/* COMMENT: Individual Game Cards and holiday card */
+.singleGameCard, .holidayDates {
      display: flex;
      flex-direction: column;
      flex: 0 0 auto;
@@ -137,6 +137,8 @@ main {
      justify-content: space-between;
 
 }
+
+
 
 .backgroundImage {
      max-width: 100px;
