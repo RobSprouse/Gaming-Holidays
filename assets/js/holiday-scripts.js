@@ -1,25 +1,26 @@
 var holidayUrl;
 var holidayData;
 var countryInput = 'Canada';
+var country = 'CA';
 var display = document.querySelector(".base-section");
 var holidayList = document.getElementById("holidayListItem");
+var holidaySearchButton = document.getElementById("holidaySearchButton");
 
-
-var holidaysList = document.getElementById("test-me");
-var holidaySearchButton = document.querySelector("#searchButton");
-
-// country selector to get country code from country name
-// itterate through all 250 countries
-for (let i = 0; i <= 250; i++) 
-{
-    // get the index number of the country
-    if (countriesList[i].name == countryInput){
-    //console.log(countriesList[i].code);
-    country = countriesList[i].code
+function selectCountry(){
+    // country selector to get country code from country name
+    // itterate through all 250 countries
+    for (let i = 0; i <= 250; i++) 
+    {
+        // get the index number of the country
+        if (countriesList[i].name == countryInput){
+        //console.log(countriesList[i].code);
+        country = countriesList[i].code
+        }
     }
 }
 
 console.log(country);
+
 
 function fetchHolidayURL(month, day, year, country){
 
@@ -40,37 +41,42 @@ function fetchHolidayURL(month, day, year, country){
     holidayUrl = createHoliday;
 }
 
+selectCountry();
 
 fetchHolidayURL(1,1,2022,country);
 
-// Xpert assistant provided the base for the fetch to avoid CORS errors
-fetch(holidayUrl)
-  .then(response => response.json())
-  .then(data => {
-    // Process the response data
-    holidayData = data
 
-    // get the number of holidays on a day, set that as i, then itterate through
-    for (let i = 0; i < holidayData.holidays.length; i++) 
-    {
-    // use the previously defined index number to log the name of each holiday
-    console.log(holidayData.holidays[i].name);
+function getHoliday(){
+    // Xpert assistant provided the base for the fetch to avoid CORS errors
+    fetch(holidayUrl)
+    .then(response => response.json())
+    .then(data => {
+        // Process the response data
+        holidayData = data
 
-    // create local variable that adds list items to HTML
-    var holidayItem = document.createElement('li');
+        // get the number of holidays on a day, set that as i, then itterate through
+        for (let i = 0; i < holidayData.holidays.length; i++) 
+        {
+        // use the previously defined index number to log the name of each holiday
+        console.log(holidayData.holidays[i].name);
 
-    // loop through each item
-    holidayItem.innerText = holidayData.holidays[i].name;
+        // create local variable that adds list items to HTML
+        var holidayItem = document.createElement('li');
 
-    // append list item to the section in the html
-    holidayList.appendChild(holidayItem);
-    }
-  })
-  .catch(error => {
-    // Handle any errors
-    console.error(error);
-});
-var test;
+        // loop through each item
+        holidayItem.innerText = holidayData.holidays[i].name;
+
+        // append list item to the section in the html
+        holidayList.appendChild(holidayItem);
+        }
+    })
+    .catch(error => {
+        // Handle any errors
+        console.error(error);
+    });
+}
+
+getHoliday();
 
 /*
 function getCountry(){
@@ -102,15 +108,20 @@ function getCountry(){
 */
 
 
+var holidaySearchButton = document.getElementById("holidaySearchButton");
 
-/*
 
 function getOverrideInputs(){
-holidayCountry = document.getElementById("countryInput").value;
+countryInput = document.getElementById("countryInput").value;
+console.log(countryInput);
+selectCountry();
+console.log(country);
+fetchHolidayURL(1,1,2022,country);
+getHoliday();
 }
 
 holidaySearchButton.addEventListener("click", getOverrideInputs);
 
-console.log(holidayCountry);
 
-*/
+
+
