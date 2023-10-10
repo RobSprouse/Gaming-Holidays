@@ -1,10 +1,11 @@
 var holidayUrl;
 var holidayData;
+var countryInput = 'Canada';
 var display = document.querySelector(".base-section");
 var holidayList = document.getElementById("holidayListItem");
 //var holidayApiKey = '6dc87409-6cac-4849-ad17-e0f4fc8a6deb'
 
-// Xpert assistant help with setting up API 
+// Xpert assistant help with setting up API
 var holidaysList = document.getElementById("test-me");
 var holidaySearchButton = document.querySelector("#searchButton");
 
@@ -17,7 +18,7 @@ function fetchHolidayURL(month, day, year, country){
     var dayForURL = '&day=' + day;
 
     // Create the url based on provided variables
-    var createHoliday = "https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb"+ countryForURL + yearForURL + monthForURL + dayForURL;
+    var createHoliday = "https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb" + countryForURL + yearForURL + monthForURL + dayForURL;
 
     // Log the url in the console
     console.log(createHoliday);
@@ -59,50 +60,26 @@ fetch(holidayUrl)
 });
 
 
-
-/*
-
- var testData;
-
-const countryUrl = `https://holidayapi.com/v1/countries?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb`;
-console.log(countryUrl);
-
-function logData()
-{
-    getCountry()
-
-}
-
-function proData()
-{
-    console.log(testData);
-}
-
-
 function getCountry(){
-    fetch(countryUrl)
+    fetch("https://holidayapi.com/v1/countries?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb")
     .then(response => response.json())
     .then(data => {
         // Process the response data
         countryData = data;
-        testData = data;
-        console.log(testData);
-        testName = 'United States';
+
         
-        
-        countryData.countries.forEach((testValue, index)=>{let test = `array number ${testValue.name}`
-        if (test === "United States") {
-        let getStuff = `index ${index}`;
-        console.log(getStuff);
+        // itterate through all 250 countries
+        for (let i = 0; i <= 250; i++) 
+        {
+        // get the index number of the country
+        if (countryData.countries[i].name == countryInput){
+        console.log(i);
+        console.log(countryData.countries[i].code);
         }
-        else {
-            console.log("this is not working :)")
+
         }
-        });
         
         
-        console.log(countryData.countries[0].code);
-        proData();
     })
     .catch(error => {
         // Handle any errors
@@ -110,11 +87,10 @@ function getCountry(){
     });
 }
 
-logData();
+
+getCountry();
 
 
-
-*/
 /*
 
 function getOverrideInputs(){
