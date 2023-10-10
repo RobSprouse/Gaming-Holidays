@@ -1,7 +1,3 @@
-var holidayCountry = 'US';
-var holidayYear = '2022';
-var holidayMonth = '1';
-var holidayDay = '1';
 var holidayUrl;
 var holidayData;
 var display = document.querySelector(".base-section");
@@ -119,6 +115,7 @@ logData();
 
 
 */
+/*
 
 function getOverrideInputs(){
 holidayCountry = document.getElementById("countryInput").value;
@@ -127,3 +124,5 @@ holidayCountry = document.getElementById("countryInput").value;
 holidaySearchButton.addEventListener("click", getOverrideInputs);
 
 console.log(holidayCountry);
+
+*/
