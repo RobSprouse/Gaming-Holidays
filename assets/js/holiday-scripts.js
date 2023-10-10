@@ -110,16 +110,23 @@ function getCountry(){
 
 var holidaySearchButton = document.getElementById("holidaySearchButton");
 
-
+// function that overrides the default country
 function getOverrideInputs(){
-countryInput = document.getElementById("countryInput").value;
-console.log(countryInput);
-selectCountry();
-console.log(country);
-fetchHolidayURL(1,1,2022,country);
-getHoliday();
+    
+    // get the country from the input box
+    countryInput = document.getElementById("countryInput").value;
+
+    console.log(countryInput);
+    // call the selectCountry function to use the imput to get the country code
+    selectCountry();
+    console.log(country);
+    // call the fetchHolidayURL to input the new country into the url
+    fetchHolidayURL(1,1,2022,country);
+    // call the API with the new URL to get the new holidays
+    getHoliday();
 }
 
+// on click call the events needed to override the default country
 holidaySearchButton.addEventListener("click", getOverrideInputs);
 
 
