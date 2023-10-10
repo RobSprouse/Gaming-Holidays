@@ -2,12 +2,14 @@ var holidayCountry = 'US';
 var holidayYear = '2022';
 var holidayMonth = '1';
 var holidayDay = '1';
+var holidayUrl;
+var holidayData;
 var display = document.querySelector(".base-section");
 //var holidayApiKey = '6dc87409-6cac-4849-ad17-e0f4fc8a6deb'
 
 // Xpert assistant help with setting up API 
 var holidaysList = document.getElementById("test-me");
-var holidaySearchButton = document.querySelector("#search-button");
+var holidaySearchButton = document.querySelector("#searchButton");
 
 function fetchHolidayURL(month, day, year, country){
 
@@ -16,11 +18,6 @@ function fetchHolidayURL(month, day, year, country){
     var yearForURL = `&year=` + year;
     var monthForURL = '&month=' + month;
     var dayForURL = '&day=' + day;
-
-    // Create the url in an array
-    /*
-    const urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb",countryForURL,yearForURL,monthForURL,"`"];
-    */
 
     var urlArray = ["`","https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb","`"];
 
@@ -33,33 +30,31 @@ function fetchHolidayURL(month, day, year, country){
     console.log(urlArray);
 
     // Turn the url into a string
-    let holidayUrl = urlArray.join("");
-    console.log(holidayUrl);
+    holidayUrl = urlArray.join("");
+
 }
 
-fetchHolidayURL();
+console.log(holidayUrl);
+
+fetchHolidayURL(1,1,2023,"US");
 
 
-
-/*
-console.log(holidayUrl)
-
-fetch(holidayUrl)
+fetch(`https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb&country=US&year=2022&day=1&month=1`)
   .then(response => response.json())
   .then(data => {
     // Process the response data
     holidayData = data
 
-    console.log(holidayData.holidays);
+    console.log(holidayData.holidays[0].name);
   })
   .catch(error => {
     // Handle any errors
     console.error(error);
-  });
-
-*/
+});
 
 
+
+/*
 
  var testData;
 
@@ -75,7 +70,9 @@ function logData()
 function proData()
 {
     console.log(testData);
-}/*
+}
+
+
 function getCountry(){
     fetch(countryUrl)
     .then(response => response.json())
@@ -97,11 +94,6 @@ function getCountry(){
         }
         });
         
-        function testMe(countries){countryData.countries.name
-            return countryData.countries.name === "Canada";
-        }
-        console.log(countryData.countries.name.find(testMe));
-        
         
         console.log(countryData.countries[0].code);
         proData();
@@ -115,12 +107,13 @@ function getCountry(){
 logData();
 
 
-*/
 
+*/
 
 function getOverrideInputs(){
 holidayCountry = document.getElementById("countryInput").value;
 }
-console.log(holidayCountry);
 
 holidaySearchButton.addEventListener("click", getOverrideInputs);
+
+console.log(holidayCountry);
