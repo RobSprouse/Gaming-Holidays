@@ -8,6 +8,19 @@ var holidayList = document.getElementById("holidayListItem");
 var holidaysList = document.getElementById("test-me");
 var holidaySearchButton = document.querySelector("#searchButton");
 
+// country selector to get country code from country name
+// itterate through all 250 countries
+for (let i = 0; i <= 250; i++) 
+{
+    // get the index number of the country
+    if (countriesList[i].name == countryInput){
+    //console.log(countriesList[i].code);
+    country = countriesList[i].code
+    }
+}
+
+console.log(country);
+
 function fetchHolidayURL(month, day, year, country){
 
     // Create variables for the section of the URL + the country
@@ -28,7 +41,7 @@ function fetchHolidayURL(month, day, year, country){
 }
 
 
-fetchHolidayURL(1,1,2022,"US");
+fetchHolidayURL(1,1,2022,country);
 
 // Xpert assistant provided the base for the fetch to avoid CORS errors
 fetch(holidayUrl)
@@ -88,15 +101,6 @@ function getCountry(){
 }
 */
 
-
-// itterate through all 250 countries
-for (let i = 0; i <= 250; i++) 
-{
-// get the index number of the country
-if (countriesList[i].name == countryInput){
-console.log(countriesList[i].code);
-}
-}
 
 
 /*
