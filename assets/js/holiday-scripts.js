@@ -45,7 +45,13 @@ fetch(`https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f
     // Process the response data
     holidayData = data
 
-    console.log(holidayData.holidays[0].name);
+    // get the number of holidays on a day, set that as i, then itterate through
+    for (let i = 0; i < holidayData.holidays.length; i++) 
+    {
+    // use the previously defined index number to log the name of each holiday
+    console.log(holidayData.holidays[i].name);
+    }
+    //console.log(holidayData.holidays[0].name);
   })
   .catch(error => {
     // Handle any errors
