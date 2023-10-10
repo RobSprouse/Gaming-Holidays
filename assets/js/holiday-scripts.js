@@ -3,9 +3,8 @@ var holidayData;
 var countryInput = 'Canada';
 var display = document.querySelector(".base-section");
 var holidayList = document.getElementById("holidayListItem");
-//var holidayApiKey = '6dc87409-6cac-4849-ad17-e0f4fc8a6deb'
 
-// Xpert assistant help with setting up API
+
 var holidaysList = document.getElementById("test-me");
 var holidaySearchButton = document.querySelector("#searchButton");
 
@@ -31,7 +30,7 @@ function fetchHolidayURL(month, day, year, country){
 
 fetchHolidayURL(1,1,2022,"US");
 
-
+// Xpert assistant provided the base for the fetch to avoid CORS errors
 fetch(holidayUrl)
   .then(response => response.json())
   .then(data => {
@@ -58,8 +57,9 @@ fetch(holidayUrl)
     // Handle any errors
     console.error(error);
 });
+var test;
 
-
+/*
 function getCountry(){
     fetch("https://holidayapi.com/v1/countries?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb")
     .then(response => response.json())
@@ -73,8 +73,8 @@ function getCountry(){
         {
         // get the index number of the country
         if (countryData.countries[i].name == countryInput){
-        console.log(i);
         console.log(countryData.countries[i].code);
+        test = countryData.countries[i].code;
         }
 
         }
@@ -86,9 +86,17 @@ function getCountry(){
         console.error(error);
     });
 }
+*/
 
 
-getCountry();
+// itterate through all 250 countries
+for (let i = 0; i <= 250; i++) 
+{
+// get the index number of the country
+if (countriesList[i].name == countryInput){
+console.log(countriesList[i].code);
+}
+}
 
 
 /*

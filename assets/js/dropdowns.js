@@ -72,8 +72,88 @@ genres = [
      { text: "Card", value: 17 },
 ];
 
-// list of countries for the countries dropdown
-const countries =
+const genres =
+[
+    {
+        "text": "Action",
+        "value": 4
+    },
+    {
+        "text": "Indie",
+        "value": 51
+    },
+    {
+        "text": "Adventure",
+        "value": 3
+    },
+    {
+        "text": "RPG",
+        "value": 5
+    },
+    {
+        "text": "Strategy",
+        "value": 10
+    },
+    {
+        "text": "Shooter",
+        "value": 2
+    },
+    {
+        "text": "Casual",
+        "value": 40
+    },
+    {
+        "text": "Simulation",
+        "value": 14
+    },
+    {
+        "text": "Puzzle",
+        "value": 7
+    },
+    {
+        "text": "Arcade",
+        "value": 11
+    },
+    {
+        "text": "Platformer",
+        "value": 83
+    },
+    {
+        "text": "Massively Multiplayer",
+        "value": 59
+    },
+    {
+        "text": "Racing",
+        "value": 1
+    },
+    {
+        "text": "Sports",
+        "value": 15
+    },
+    {
+        "text": "Fighting",
+        "value": 6
+    },
+    {
+        "text": "Family",
+        "value": 19
+    },
+    {
+        "text": "Board Games",
+        "value": 28
+    },
+    {
+        "text": "Educational",
+        "value": 34
+    },
+    {
+        "text": "Card",
+        "value": 17
+    }
+]
+
+// list of countries for the countries dropdown, retrieved from Holiday API
+const countriesList =
 [
 {code: "AD", name: "Andorra"},
 {code: "AE", name: "United Arab Emirates"},
