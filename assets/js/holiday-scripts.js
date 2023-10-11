@@ -2,32 +2,28 @@ var holidayUrl;
 var holidayData;
 var countryInput = 'Canada';
 var country = 'CA';
+var isReal = 0;
 var display = document.querySelector(".base-section");
 var holidayList = document.getElementById("holidayListItem");
 var holidaySearchButton = document.getElementById("holidaySearchButton");
 
 function selectCountry(){
 
-    var test = 0;
+    // Create variable to see if the country name matches the input
     // country selector to get country code from country name
     // itterate through all 250 countries
     for (let i = 0; i <= 250; i++) 
     {
         // get the index number of the country
         if (countriesList[i].name == countryInput){
-        //console.log(countriesList[i].code);
-        country = countriesList[i].code
-        test = 1;
+        // set the country variable equal to the country code
+        country = countriesList[i].code;
+        // change isReal to 1, used to indicate if the user input is a valid country for error handling
+        isReal = 1;
         }
-    }
-    console.log(test);
-    if (test== 0){
-        console.log("no");
     }
 
 }
-
-console.log(country);
 
 
 function fetchHolidayURL(month, day, year, country){
@@ -127,10 +123,18 @@ function getOverrideInputs(){
       }
     // get the country from the input box
     countryInput = document.getElementById("countryInput").value;
+    countryInput = countryInput.toLowerCase();
 
     console.log(countryInput);
     // call the selectCountry function to use the imput to get the country code
     selectCountry();
+
+    // if the country name does not match the options, enter no
+    console.log(isReal);
+    if (isReal == 0){
+        window.alert("This is not a valid answer, please try again. Rememeber that the country name must be spelled correctly.")
+    }
+
     console.log(country);
     // call the fetchHolidayURL to input the new country into the url
     fetchHolidayURL(1,1,2022,country);
