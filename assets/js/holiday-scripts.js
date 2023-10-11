@@ -106,11 +106,7 @@ function getHoliday(holidayUrl) {
 }
 
 
-function getOverrideInputs(holidayUrl) { // 
-     // remove child code from https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
-    /*while (holidayList.firstChild) { 
-          holidayList.removeChild(holidayList.firstChild);
-     }*/
+function getOverrideInputs(holidayUrl) {
 
      // get the country from the input box
      countryInput = document.getElementById("countryInput").value;

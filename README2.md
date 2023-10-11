@@ -20,7 +20,7 @@ Sources are notated on the code used.
 
 These sources include:
 -Xpert Learning Assistant 
--removeChild, Mozilla, https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+-removeChild, Mozilla, https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild (note, code used from here did not make it to the final product)
 -normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
 
 APIs used are
