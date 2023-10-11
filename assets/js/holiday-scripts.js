@@ -68,6 +68,7 @@ function getHoliday(){
 
         // append list item to the section in the html
         holidayList.appendChild(holidayItem);
+    
         }
     })
     .catch(error => {
@@ -112,7 +113,11 @@ var holidaySearchButton = document.getElementById("holidaySearchButton");
 
 // function that overrides the default country
 function getOverrideInputs(){
-    
+
+    // remove child code from https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+    while (holidayList.firstChild) {
+        holidayList.removeChild(holidayList.firstChild);
+      }
     // get the country from the input box
     countryInput = document.getElementById("countryInput").value;
 
@@ -124,6 +129,7 @@ function getOverrideInputs(){
     fetchHolidayURL(1,1,2022,country);
     // call the API with the new URL to get the new holidays
     getHoliday();
+
 }
 
 // on click call the events needed to override the default country
