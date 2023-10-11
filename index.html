@@ -11,7 +11,9 @@
      <link rel="stylesheet" href="assets/css/bulma.min.css">
      <link rel="stylesheet" href="assets/css/style.css">
      <title>Gaming Holidays</title>
-     <!-- TODO: add search keyworks -->
+     <meta name="description"
+          content="Look up game information and holiday dates that correspond to the game's release date.">
+     <meta name="keywords" content="Game and Holiday search">
 </head>
 
 <!-- COMMENT: Body Section -->
@@ -22,24 +24,24 @@
      <header>
           <h1 id="gamingHolidays">Gaming Holidays</h1>
           <p id="instructionsP">
-               <span id="instructionsSpan">Directions: Find your favorite games using this Api! Search any game and add it to your own wishlist for you to go back and check out later! Also find out what holidays that were happening when your favorite game was released!</span>
+               <span id="instructionsSpan">Directions: Find your favorite games using this Api! Search any game and add
+                    it to your own wishlist for you to go back and check out later! Also find out what holidays that
+                    were happening when your favorite game was released!</span>
           </p>
           <section class="gameSearch">
                <h3>Search for a Game:
                </h3>
                <form id="searchInput">
-                    <!-- added classes -->
-                    <input class="input is-warning" type="text" name="searchInput" placeholder="Game Name" id="searchInput">
+                    <input class="input is-warning" type="text" name="searchInput" placeholder="Game Name"
+                         id="searchInput">
                     <input class="button is-warning is-light" type="submit" value="Search">
                </form>
                <label for="searchType"></label>
-               <!-- added classes -->
                <select class="searchType button is-warning is-light" id="searchType" name="searchType">
-                   <option value="normal">Normal Search</option>
-                   <option value="precise">Precise Search</option>
-                   <option value="exact">Exact Search</option>
+                    <option value="normal">Normal Search</option>
+                    <option value="precise">Precise Search</option>
+                    <option value="exact">Exact Search</option>
                </select>
-               <!-- added classes -->
                <button class="platformsCategory button is-warning is-light" id="platformsCategory">Platforms</button>
                <button class="genresCategory button is-warning is-light" id="genresCategory">Genres</button>
 
@@ -53,7 +55,6 @@
                <h2>Search Categories</h2>
                <ul>
                     <li><span id="fetchAllGames">All Games</span></li>
-                    <!-- <li><span id="platformsCategory">Platforms</span></li> -->
                </ul>
           </section>
           <!-- COMMENT: Game card display area -->
@@ -61,15 +62,15 @@
                <section class="gameCardsDiv">
                     <!-- COMMENT: Where Game Cards will be appended -->
                </section>
-               <section class="holidayDates" id ="holidayDates">
+               <section class="holidayDates" id="holidayDates">
                     <h3 class="holidayInfo">Take a look at what holidays occurred on this game's release day!</h3>
                     <li id="holidayListItem">
 
                     </li>
                     <p>See what holidays are happening in other countries! The default is the United States.</p>
                     <div id="errorText"></div>
-                    <input class= "input is-warning" id="countryInput" type="text" placeholder="Type Country Here">
-                    <button class ="searchType button is-warning is-light" id="holidaySearchButton">Search</button>
+                    <input class="input is-warning" id="countryInput" type="text" placeholder="Type Country Here">
+                    <button class="searchType button is-warning is-light" id="holidaySearchButton">Search</button>
                </section>
           </section>
      </main>
@@ -77,7 +78,8 @@
      <footer class="footer">
           <a class="apiLinks" href="https://rawg.io/apidocs">This is the Game Api that we used called RAWG Api, </a>
           <a class="apiLinks" href="https://holidayapi.com/">This is the second Api that we used called Holiday Api</a>
-          There is no intention to replace the website of RAWG, the intention was to display how one can use different Api's to combine them together (This is a student project).
+          There is no intention to replace the website of RAWG, the intention was to display how one can use different
+          Api's to combine them together (This is a student project).
      </footer>
 
      <!-- COMMENT: JS Scripts -->

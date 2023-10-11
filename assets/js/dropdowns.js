@@ -1,3 +1,5 @@
+
+// COMMENT: const variables for search parameters for game api
 const platforms = [
      { text: "PC", value: "4" },
      { text: "PlayStation 5", value: "187" },
