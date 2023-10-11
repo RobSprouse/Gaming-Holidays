@@ -310,6 +310,8 @@ $(function () {
           let gameIdURL = `https://api.rawg.io/api/games/${gameId}${apiKey}`;
           $(".gameCardsDiv").empty();
           fetchGameIdURL(gameIdURL);
+          //show the holiday card
+          showHoliday();
      });
 
      // COMMENT: fetches the page url when a page number is clicked
