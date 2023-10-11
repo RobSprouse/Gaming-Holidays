@@ -138,6 +138,11 @@ function getOverrideInputs(){
     isReal = 0;
 
 }
+localStorage.setItem("countryName", country);
+
+let testMe = localStorage.getItem("countryName");
+
+console.log(testMe)
 
 // on click call the events needed to override the default country
 holidaySearchButton.addEventListener("click", getOverrideInputs);
