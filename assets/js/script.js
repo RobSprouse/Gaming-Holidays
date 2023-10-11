@@ -1,5 +1,4 @@
 // COMMENT: main script for gameApi usage
-// @ts-uncheck
 // bing AI chat was utilized to assist in looking up how to do do certain things with this code. No specific website or source was copied and added to this code.
 const apiKey = "?key=164d87e9b2364003ad69bc496d5e3d7f";
 
@@ -329,9 +328,6 @@ $(function () {
           let gameIdURL = `https://api.rawg.io/api/games/${gameId}${apiKey}`;
           $(".gameCardsDiv").empty();
           fetchGameIdURL(gameIdURL);
-          // COMMENT: moved this because it doesn't always work in a on click for some reason
-          //show the holiday card
-          //showHoliday();
      });
 
      // COMMENT: fetches the page url when a page number is clicked
@@ -348,5 +344,3 @@ $(function () {
           fetchGamesListURL(gameListURL);
      });
 });
-
-// TODO: display the api source/link on the webpage to conform to the api's terms of use, read over to confirm terms
