@@ -2,7 +2,14 @@
 :root {
      --Header-footer-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
      --Body-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
+     --gold: #ffcb9a;
+     --sea-green: #116466;
+     --grey-green: #d1e8e2;
+     --dusk-green: #2c3531;
+     --dark-red: #530909;
 }
+
+
 * {
      box-sizing: border-box;
      padding: 0;
@@ -15,55 +22,23 @@ body {
      display: flex;
      flex-direction: column;
      font-family: var(--Body-font);
-     border: 1px solid #ffcb9a;
-     background-color: #116466;
-     color: #d1e8e2;
+     border: 1px solid var(--gold);
+     background-color: var(--sea-green);
+     color: var(--grey-green);
 }
 
-/* COMMENT: Header with City Search */
+/* COMMENT: Header with Search */
 header {
      display: flex;
      flex-direction: column;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
+     background-color: var(--sea-green);
+     border: 1px solid var(--grey-green);
      align-items: center;
 
-}
-
-#instructionsP {
-     text-align: justify;
-     padding: 0 3em 1em 3em;
-}
-
-#instructionsSpan {
-     color: #d1e8e2;
-     font-weight: bold;
-     font-size: 20px;
 }
 
 header section {
      padding: 0 3em 1em 3em;
-}
-
-#invalidEntry {
-     padding: 0.5em 0 0.5em 0;
-}
-
-
-.gameSearch {
-     display: flex;
-     flex: 1 0 auto;
-     flex-direction: row;
-     align-items: center;
-     text-align: center;
-     padding: 1em 0 0.5em 0;
-     border:   #2c3531;
-     
-}
-
-#searchInput input[type=text] {
-     max-width: 12em;
-     margin-left: 0.2em;
 }
 
 /* COMMENT: Main Section */
@@ -72,18 +47,36 @@ main {
      flex-direction: row;
 }
 
-/* COMMENT: Search area */
+/* COMMENT: Footer */
+footer {
+     display: flex;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
+     min-height: 4em;
+}
+
+.gameSearch {
+     display: flex;
+     flex: 1 0 auto;
+     flex-direction: row;
+     align-items: center;
+     text-align: center;
+     padding: 1em 0 0.5em 0;
+     border:   var(--dusk-green);
+     
+}
+/* COMMENT: Categories area */
 
 .categories {
      display: flex;
      flex-direction: column;
      flex-basis: 20%;
      align-items: center;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
+     background-color: var(--sea-green);
+     border: 1px solid var(--gold);
      padding: 0.5em;
      min-width: 8em;
-     color: #d1e8e2;
+     color: var(--grey-green);
 }
 
 .categories li {
@@ -95,21 +88,18 @@ main {
      display: flex;
      flex: 1 1 100%;
      flex-direction: column;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
+     background-color: var(--sea-green);
+     border: 1px solid var(--gold);
      min-height: 50em;
-
-
 }
 
-
 /* COMMENT: Game card display area */
-.gameCardsDiv {
+.gameCardsDiv{
      display: flex;
      flex-direction: row;
      flex-wrap: wrap;
      justify-content: space-around;
-     color: #d1e8e2;
+     color: var(--grey-green);
 
 }
 
@@ -117,18 +107,28 @@ main {
      max-width: 200px;
 }
 
-/* COMMENT: Individual Game Cards */
-.singleGameCard {
+/* COMMENT: Individual Game Cards and holiday card */
+.singleGameCard  {
      display: flex;
      flex-direction: column;
      flex: 0 0 auto;
      min-width: 8em;
      min-height: 10em;
      margin: 0.5em 0.5em;
-     background-color: #116466;
+     background-color: var(--sea-green);
      padding: 0.5em;
      justify-content: space-between;
 
+}
+
+.holidayDates{
+     display:flex;
+     flex-direction: column;
+     flex: 0 0 auto;
+     background-color: var(--sea-green);
+     border: 1px solid var(--gold);
+     padding: 2em;
+     justify-content: space-between;
 }
 
 .backgroundImage {
@@ -136,28 +136,54 @@ main {
      margin: 0 0 0 2em;
 }
 
-
-/* COMMENT: Footer */
-footer {
-     display: flex;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
-     min-height: 4em;
-}
 .minGameCard {
      border: 3px solid #ffcb9a;
-     border-radius: 5px 5px 5px 5px;
-     
+     border-radius: 5px 5px 5px 5px;   
 }
-#gamingHolidays {
-     font-size: 30px;
-}
-#instructionsSpan {
-     font-size: 30px;
-}
-.gameSearch {
+
+.holidayInfo, .gameSearch{
      font-size: 25px;
 }
+
 .categories {
      font-size: 20px;
+}
+
+#gamingHolidays, #instructionsSpan {
+     font-size: 30px;
+}
+
+/* make the error text for incorrect country red */
+#errorText{
+     color: var(--dark-red);
+}
+
+/* resize holiday search button */
+#holidaySearchButton{
+     max-width: 80px;
+}
+
+/* resize country input section */
+#countryInput{
+     max-width: 200px;
+}
+
+#instructionsP {
+     text-align: justify;
+     padding: 0 3em 1em 3em;
+}
+
+#instructionsSpan {
+     color: var(--grey-green);
+     font-weight: bold;
+     font-size: 20px;
+}
+
+#invalidEntry {
+     padding: 0.5em 0 0.5em 0;
+}
+
+#searchInput input[type=text] {
+     max-width: 12em;
+     margin-left: 0.2em;
 }
