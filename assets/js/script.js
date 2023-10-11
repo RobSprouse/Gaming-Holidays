@@ -90,7 +90,7 @@ function fetchGameIdURL(gameIdURL) {
 
                getHoliday(holidayUrl);
 
-               singleGameCard.append("<h3>Developers</h3>");
+               singleGameCard.append("<h3>Developers:</h3>");
                singleGameCard.append(
                     $("<ul class='developerName'>").append(
                          $.map(game.developers, function (developers) {
@@ -98,7 +98,7 @@ function fetchGameIdURL(gameIdURL) {
                          })
                     )
                );
-               singleGameCard.append("<h3>Platforms</h3>");
+               singleGameCard.append("<h3>Platforms:</h3>");
                singleGameCard.append(
                     $("<ul class='platformName'>").append(
                          $.map(game.platforms, function (platforms) {
@@ -106,11 +106,11 @@ function fetchGameIdURL(gameIdURL) {
                          })
                     )
                );
-               singleGameCard.append("<h3>Tags</h3>");
+               singleGameCard.append("<h3>Tags:</h3>");
                singleGameCard.append(
-                    $("<ul class = 'tags'>").append(
+                    $("<ul class='tags'>").append(
                          $.map(game.tags, function (tags) {
-                              return $("<li>").text(tags.name);
+                              return $("<li>").text("#" + tags.name + "  ");
                          })
                     )
                );
