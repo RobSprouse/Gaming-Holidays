@@ -6,6 +6,29 @@ var isReal = 0;
 var holidayList = document.getElementById("holidayListItem");
 var holidaySearchButton = document.getElementById("holidaySearchButton");
 
+// hide the holiday card from the main page
+function hideHoliday() {
+    var toggleStart = document.getElementById("holidayDates");
+    if (toggleStart.style.display === "none") {
+        toggleStart.style.display = "block";
+    } else {
+        toggleStart.style.display = "none";
+    }
+}
+
+hideHoliday();
+
+// show the holiday card when an individual game is clicked
+function showHoliday() {
+    var toggleStart = document.getElementById("holidayDates");
+    if (toggleStart.style.display === "block") {
+        toggleStart.style.display = "none";
+    } else {
+        toggleStart.style.display = "block";
+    }
+}
+
+
 function selectCountry(){
 
     // Create variable to see if the country name matches the input
