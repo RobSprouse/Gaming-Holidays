@@ -3,8 +3,8 @@ var holidayData;
 var countryInput = 'United States';
 var country = 'US'; // default country
 var isReal = 0;
-var day;
-var month;
+var dayInput;
+var monthInput;
 var holidayList = document.getElementById("holidayListItem");
 var holidaySearchButton = document.getElementById("holidaySearchButton");
 var errorFlag = document.getElementById("errorText");

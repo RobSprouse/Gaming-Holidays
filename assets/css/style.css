@@ -37,25 +37,23 @@ header {
 
 }
 
-#instructionsP {
-     text-align: justify;
-     padding: 0 3em 1em 3em;
-}
-
-#instructionsSpan {
-     color: var(--grey-green);
-     font-weight: bold;
-     font-size: 20px;
-}
-
 header section {
      padding: 0 3em 1em 3em;
 }
 
-#invalidEntry {
-     padding: 0.5em 0 0.5em 0;
+/* COMMENT: Main Section */
+main {
+     display: flex;
+     flex-direction: row;
 }
 
+/* COMMENT: Footer */
+footer {
+     display: flex;
+     background-color: #116466;
+     border: 1px solid #ffcb9a;
+     min-height: 4em;
+}
 
 .gameSearch {
      display: flex;
@@ -67,18 +65,6 @@ header section {
      border:   var(--dusk-green);
      
 }
-
-#searchInput input[type=text] {
-     max-width: 12em;
-     margin-left: 0.2em;
-}
-
-/* COMMENT: Main Section */
-main {
-     display: flex;
-     flex-direction: row;
-}
-
 /* COMMENT: Search area */
 
 .categories {
@@ -106,7 +92,6 @@ main {
      border: 1px solid var(--gold);
      min-height: 50em;
 }
-
 
 /* COMMENT: Game card display area */
 .gameCardsDiv{
@@ -146,6 +131,28 @@ main {
      justify-content: space-between;
 }
 
+.backgroundImage {
+     max-width: 100px;
+     margin: 0 0 0 2em;
+}
+
+.minGameCard {
+     border: 3px solid #ffcb9a;
+     border-radius: 5px 5px 5px 5px;   
+}
+
+.holidayInfo, .gameSearch{
+     font-size: 25px;
+}
+
+.categories {
+     font-size: 20px;
+}
+
+#gamingHolidays, #instructionsSpan {
+     font-size: 30px;
+}
+
 /* make the error text for incorrect country red */
 #errorText{
      color: var(--dark-red);
@@ -161,38 +168,22 @@ main {
      max-width: 200px;
 }
 
-.backgroundImage {
-     max-width: 100px;
-     margin: 0 0 0 2em;
+#instructionsP {
+     text-align: justify;
+     padding: 0 3em 1em 3em;
 }
 
-
-/* COMMENT: Footer */
-footer {
-     display: flex;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
-     min-height: 4em;
-}
-.minGameCard {
-     border: 3px solid #ffcb9a;
-     border-radius: 5px 5px 5px 5px;
-     
-}
-#gamingHolidays {
-     font-size: 30px;
-}
 #instructionsSpan {
-     font-size: 30px;
-}
-
-.holidayInfo{
-     font-size: 25px;
-}
-
-.gameSearch {
-     font-size: 25px;
-}
-.categories {
+     color: var(--grey-green);
+     font-weight: bold;
      font-size: 20px;
+}
+
+#invalidEntry {
+     padding: 0.5em 0 0.5em 0;
+}
+
+#searchInput input[type=text] {
+     max-width: 12em;
+     margin-left: 0.2em;
 }
