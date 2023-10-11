@@ -1,12 +1,11 @@
 var holidayUrl;
 var holidayData;
-var countryInput;
+var countryInput = 'United States';
 var country = 'US'; // default country
 var isReal = 0;
 var holidayList = document.getElementById("holidayListItem");
 var holidaySearchButton = document.getElementById("holidaySearchButton");
 var errorFlag = document.getElementById("errorText");
-
 
 // hide the holiday card from the main page
 function hideHoliday() {
@@ -117,6 +116,7 @@ function getOverrideInputs(){
     // get the country from the input box
     countryInput = document.getElementById("countryInput").value;
     countryInput = countryInput.toLowerCase();
+    
 
     console.log(countryInput);
     
@@ -138,11 +138,6 @@ function getOverrideInputs(){
     isReal = 0;
 
 }
-localStorage.setItem("countryName", country);
-
-let testMe = localStorage.getItem("countryName");
-
-console.log(testMe)
 
 // on click call the events needed to override the default country
 holidaySearchButton.addEventListener("click", getOverrideInputs);
