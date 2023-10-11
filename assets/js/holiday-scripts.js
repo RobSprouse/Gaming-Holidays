@@ -7,6 +7,8 @@ var holidayList = document.getElementById("holidayListItem");
 var holidaySearchButton = document.getElementById("holidaySearchButton");
 
 function selectCountry(){
+
+    var test = 0;
     // country selector to get country code from country name
     // itterate through all 250 countries
     for (let i = 0; i <= 250; i++) 
@@ -15,8 +17,14 @@ function selectCountry(){
         if (countriesList[i].name == countryInput){
         //console.log(countriesList[i].code);
         country = countriesList[i].code
+        test = 1;
         }
     }
+    console.log(test);
+    if (test== 0){
+        console.log("no");
+    }
+
 }
 
 console.log(country);
@@ -57,6 +65,7 @@ function getHoliday(){
         // get the number of holidays on a day, set that as i, then itterate through
         for (let i = 0; i < holidayData.holidays.length; i++) 
         {
+
         // use the previously defined index number to log the name of each holiday
         console.log(holidayData.holidays[i].name);
 
@@ -108,8 +117,6 @@ function getCountry(){
 }
 */
 
-
-var holidaySearchButton = document.getElementById("holidaySearchButton");
 
 // function that overrides the default country
 function getOverrideInputs(){
