@@ -27,7 +27,7 @@ body {
      color: var(--grey-green);
 }
 
-/* COMMENT: Header with City Search */
+/* COMMENT: Header with Search */
 header {
      display: flex;
      flex-direction: column;
@@ -65,7 +65,7 @@ footer {
      border:   var(--dusk-green);
      
 }
-/* COMMENT: Search area */
+/* COMMENT: Categories area */
 
 .categories {
      display: flex;
