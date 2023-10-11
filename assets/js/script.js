@@ -1,4 +1,6 @@
+// COMMENT: main script for gameApi usage
 // @ts-uncheck
+// bing AI chat was utilized to assist in looking up how to do do certain things with this code. No specific website or source was copied and added to this code.
 const apiKey = "?key=164d87e9b2364003ad69bc496d5e3d7f";
 
 // COMMENT: fetch function for gameListURL
@@ -141,20 +143,23 @@ function createCheckboxMenu(checkboxMenu, options) {
           "grid-template-columns": "repeat(auto-fill, minmax(145px, 1fr))",
           gap: "10px",
      });
-     options.forEach((option) => {
+     for (let i = 0; i < options.length; i++) {
+          let option = options[i];
           let checkbox = $("<input>")
                .attr("type", "checkbox")
+               .attr("id", "checkbox" + option.value + i)
                .attr("value", option.value)
                .on("click", function (event) {
                     event.stopPropagation();
                });
           let label = $("<label>")
-               .attr("for", "checkbox" + option.value)
+               .attr("for", "checkbox" + option.value + i)
                .css({ display: "flex", "align-items": "center", "white-space": "nowrap" })
                .text(option.text)
                .prepend(checkbox);
           checkboxDiv.append(label);
-     });
+     }
+
      menu.append(checkboxDiv);
      let closeButton = $("<button>")
           .text("Close")
