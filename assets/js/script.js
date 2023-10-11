@@ -175,7 +175,7 @@ function createCheckboxMenu(checkboxMenu, options) {
 
 // COMMENT: function to create a pagination button
 function createButton(page, isActive = false, gameListURL) {
-     const button = $("<button>");
+     const button = $("<button class ='searchType button is-warning is-light' >");
      const buttonText = isActive ? `Current Page: ${page}` : `Page: ${page}`;
      const span = $("<span>").text(buttonText);
      button.append(span);
