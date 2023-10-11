@@ -1,9 +1,8 @@
 var holidayUrl;
 var holidayData;
-var countryInput = 'Canada';
-var country = 'CA';
+var countryInput;
+var country = 'US'; // default country
 var isReal = 0;
-var display = document.querySelector(".base-section");
 var holidayList = document.getElementById("holidayListItem");
 var holidaySearchButton = document.getElementById("holidaySearchButton");
 
@@ -22,9 +21,7 @@ function selectCountry(){
         isReal = 1;
         }
     }
-
 }
-
 
 function fetchHolidayURL(month, day, year, country){
 
@@ -36,9 +33,6 @@ function fetchHolidayURL(month, day, year, country){
 
     // Create the url based on provided variables
     var createHoliday = "https://holidayapi.com/v1/holidays?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb" + countryForURL + yearForURL + monthForURL + dayForURL;
-
-    // Log the url in the console
-    console.log(createHoliday);
 
     // Assign url to golobal variable
     // NOTE - this step is necessary to prevent cors errors
@@ -84,36 +78,6 @@ function getHoliday(){
 
 getHoliday();
 
-/*
-function getCountry(){
-    fetch("https://holidayapi.com/v1/countries?pretty&key=6dc87409-6cac-4849-ad17-e0f4fc8a6deb")
-    .then(response => response.json())
-    .then(data => {
-        // Process the response data
-        countryData = data;
-
-        
-        // itterate through all 250 countries
-        for (let i = 0; i <= 250; i++) 
-        {
-        // get the index number of the country
-        if (countryData.countries[i].name == countryInput){
-        console.log(countryData.countries[i].code);
-        test = countryData.countries[i].code;
-        }
-
-        }
-        
-        
-    })
-    .catch(error => {
-        // Handle any errors
-        console.error(error);
-    });
-}
-*/
-
-
 // function that overrides the default country
 function getOverrideInputs(){
 
@@ -126,6 +90,7 @@ function getOverrideInputs(){
     countryInput = countryInput.toLowerCase();
 
     console.log(countryInput);
+    
     // call the selectCountry function to use the imput to get the country code
     selectCountry();
 
@@ -145,7 +110,3 @@ function getOverrideInputs(){
 
 // on click call the events needed to override the default country
 holidaySearchButton.addEventListener("click", getOverrideInputs);
-
-
-
-
