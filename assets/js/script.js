@@ -39,11 +39,12 @@ function displayGameData(gameList, gameListURL) {
           let minGameCard = $("<div class='minGameCard'>");
           let gameName = gameList.results[i].name;
           let gameId = gameList.results[i].id;
-          let button = $("<button>").text("Add to Wishlist!");
+          let button = $("<button class ='searchType button is-warning is-light'>").text("Add to Wishlist!");
           minGameCard.append($("<img>", { class: "smallBackgroundImage", src: gameList.results[i].background_image }));
           minGameCard.append($("<h2 class='gameName' id='gameId" + gameId + "'>").text(gameName));
           button.on("click", function (event) {
                localStorage.setItem(gameName, gameId);
+               displayWishlist();
           });
           minGameCard.append(button);
           minGameCard.append($("<h3 class='releaseDateHeader'>").text("Release Date:"));
@@ -174,7 +175,7 @@ function createCheckboxMenu(checkboxMenu, options) {
 
 // COMMENT: function to create a pagination button
 function createButton(page, isActive = false, gameListURL) {
-     const button = $("<button>");
+     const button = $("<button class ='searchType button is-warning is-light' >");
      const buttonText = isActive ? `Current Page: ${page}` : `Page: ${page}`;
      const span = $("<span>").text(buttonText);
      button.append(span);
@@ -233,7 +234,7 @@ function displayWishlist() {
                width: "100%",
           });
 
-          let button = $("<button>").text("Remove!");
+          let button = $("<button class ='searchType button is-warning is-light'>").text("Remove!");
 
           button.on("click", function () {
                localStorage.removeItem(gameName);

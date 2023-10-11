@@ -3,7 +3,7 @@
      --Header-footer-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
      --Body-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
      --gold: #ffcb9a;
-     --dark-gold: #39b290;
+     --light-green: #39b290;
      --sea-green: #116466;
      --grey-green: #d1e8e2;
      --dusk-green: #2c3531;
@@ -51,8 +51,8 @@ main {
 /* COMMENT: Footer */
 footer {
      display: flex;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
+     background-color: var(--dusk-green);
+     border: 1px solid var(--gold);
      min-height: 4em;
 }
 
@@ -63,9 +63,9 @@ h3 {
 
 h2 {
      font-weight: bolder;
-     color: var(--dark-gold);
      text-decoration: underline;
      cursor: pointer;
+     color: var(--light-green);
 }
 
 .gameSearch {
@@ -146,9 +146,7 @@ h2 {
      margin: 0.5em 0.5em;
      background-color: var(--sea-green);
      padding: 0.5em;
-     justify-content: space-between;
      width: 100%
-     
 }
 
 .holidayDates{
@@ -161,13 +159,16 @@ h2 {
      justify-content: space-between;
 }
 
+/* make the image grow and shrink with the screen, capped at 50% of width or height */
 .backgroundImage {
-     max-width: 100px;
-     margin: 0 0 0 2em;
+     margin-left: auto;
+     margin-right: auto;
+     max-width: 50%;
+     max-height: 50%;
 }
 
 .minGameCard {
-     border: 3px solid #ffcb9a;
+     border: 3px solid var(--gold);
      border-radius: 5px 5px 5px 5px;   
 }
 
