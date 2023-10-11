@@ -1,9 +1,8 @@
-// COMMENT: the formatting in my vs code changed how some of this looks which made some of this show up as changed code
 var holidayUrl;
 var holidayData;
 var countryInput = "United States";
-var country; //= 'US'; // default country // COMMENT: out to see if selectcoutry works without it
-var isReal; //= 0; // COMMENT: ^^ same
+var country;
+var isReal; 
 var dayInput;
 var monthInput;
 var holidayList = document.getElementById("holidayListItem");
@@ -53,7 +52,8 @@ function fetchHolidayURL(month, day, year, country) {
 
 
 function getHoliday(holidayUrl) {
-     holidayList.innerHTML = ""; // COMMENT: clears out the previously appended holidays
+     holidayList.innerHTML = ""; 
+     //clears out the previously appended holidays
      // Xpert assistant provided the base for the fetch to avoid CORS errors
      fetch(holidayUrl)
           .then((response) => response.json())
