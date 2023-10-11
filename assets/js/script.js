@@ -29,6 +29,7 @@ function fetchGamesListURL(gameListURL) {
 
 // COMMENT: function to display the game data that is fetched by fetchGamesListURL
 function displayGameData(gameList, gameListURL) {
+     $("#holidayDates").hide();
      const totalPages = Math.ceil(gameList.count / 20);
      let url = new URL(gameListURL);
      let params = new URLSearchParams(url.search);
@@ -71,6 +72,7 @@ function fetchGameIdURL(gameIdURL) {
           })
           .then((game) => {
                displayWishlist();
+               $("#holidayDates").show();
                let singleGameCard = $("<div class='singleGameCard'>");
                singleGameCard.append(
                     $("<img>", { class: "backgroundImage", src: game.background_image, alt: "background image" })
@@ -78,6 +80,16 @@ function fetchGameIdURL(gameIdURL) {
                singleGameCard.append($("<h2 class='gameName' id='gameId" + game.id + "'>").text(game.name));
                singleGameCard.append($("<h3 class='releaseDateHeader'>").text("Release Date:"));
                singleGameCard.append($("<ul class='releaseDate'>")).append($("<li>").text(game.released));
+
+               let releaseDate = new Date(game.released);
+               let month = releaseDate.getMonth() + 1;
+               let day = releaseDate.getDate();
+               let year = 2022; // releaseDate.getFullYear(); // holiday api only allows for previous year for free accounts
+               let country = "US"; // default country
+               let holidayUrl = fetchHolidayURL(month, day, year, country);
+
+               getHoliday(holidayUrl);
+
                singleGameCard.append("<h3>Developers</h3>");
                singleGameCard.append(
                     $("<ul class='developerName'>").append(
@@ -233,6 +245,7 @@ function displayWishlist() {
 }
 
 $(function () {
+     $("#holidayDates").hide();
      // COMMENT: sort the search query parameters, run them through the function to create a menu from them, then append them
      platforms.sort((a, b) => (a.text > b.text ? 1 : -1));
      genres.sort((a, b) => (a.text > b.text ? 1 : -1));
@@ -310,8 +323,9 @@ $(function () {
           let gameIdURL = `https://api.rawg.io/api/games/${gameId}${apiKey}`;
           $(".gameCardsDiv").empty();
           fetchGameIdURL(gameIdURL);
+          // COMMENT: moved this because it doesn't always work in a on click for some reason
           //show the holiday card
-          showHoliday();
+          //showHoliday();
      });
 
      // COMMENT: fetches the page url when a page number is clicked
