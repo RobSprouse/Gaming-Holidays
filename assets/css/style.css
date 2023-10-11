@@ -3,6 +3,7 @@
      --Header-footer-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
      --Body-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
      --gold: #ffcb9a;
+     --dark-gold: #39b290;
      --sea-green: #116466;
      --grey-green: #d1e8e2;
      --dusk-green: #2c3531;
@@ -55,6 +56,16 @@ footer {
      min-height: 4em;
 }
 
+h3 {
+     font-weight: 900;
+     color: var(--gold);
+}
+
+h2 {
+     font-weight: bolder;
+     color: var(--dark-gold);
+}
+
 .gameSearch {
      display: flex;
      flex: 1 0 auto;
@@ -103,6 +114,11 @@ footer {
 
 }
 
+/* get white space to show propperly in tags list items */
+.tags {
+     white-space: pre;
+}
+
 .smallBackgroundImage {
      max-width: 200px;
 }
@@ -118,7 +134,8 @@ footer {
      background-color: var(--sea-green);
      padding: 0.5em;
      justify-content: space-between;
-
+     width: 100%
+     
 }
 
 .holidayDates{
@@ -141,7 +158,7 @@ footer {
      border-radius: 5px 5px 5px 5px;   
 }
 
-.holidayInfo, .gameSearch{
+.gameSearch{
      font-size: 25px;
 }
 
