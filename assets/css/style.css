@@ -2,6 +2,11 @@
 :root {
      --Header-footer-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
      --Body-font: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif";
+     --gold: #ffcb9a;
+     --sea-green: #116466;
+     --grey-green: #d1e8e2;
+     --dusk-green: #2c3531;
+     --dark-red: #530909;
 }
 
 
@@ -17,17 +22,17 @@ body {
      display: flex;
      flex-direction: column;
      font-family: var(--Body-font);
-     border: 1px solid #ffcb9a;
-     background-color: #116466;
-     color: #d1e8e2;
+     border: 1px solid var(--gold);
+     background-color: var(--sea-green);
+     color: var(--grey-green);
 }
 
 /* COMMENT: Header with City Search */
 header {
      display: flex;
      flex-direction: column;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
+     background-color: var(--sea-green);
+     border: 1px solid var(--grey-green);
      align-items: center;
 
 }
@@ -38,7 +43,7 @@ header {
 }
 
 #instructionsSpan {
-     color: #d1e8e2;
+     color: var(--grey-green);
      font-weight: bold;
      font-size: 20px;
 }
@@ -59,7 +64,7 @@ header section {
      align-items: center;
      text-align: center;
      padding: 1em 0 0.5em 0;
-     border:   #2c3531;
+     border:   var(--dusk-green);
      
 }
 
@@ -81,11 +86,11 @@ main {
      flex-direction: column;
      flex-basis: 20%;
      align-items: center;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
+     background-color: var(--sea-green);
+     border: 1px solid var(--gold);
      padding: 0.5em;
      min-width: 8em;
-     color: #d1e8e2;
+     color: var(--grey-green);
 }
 
 .categories li {
@@ -97,21 +102,19 @@ main {
      display: flex;
      flex: 1 1 100%;
      flex-direction: column;
-     background-color: #116466;
-     border: 1px solid #ffcb9a;
+     background-color: var(--sea-green);
+     border: 1px solid var(--gold);
      min-height: 50em;
-
-
 }
 
 
 /* COMMENT: Game card display area */
-.gameCardsDiv {
+.gameCardsDiv{
      display: flex;
      flex-direction: row;
      flex-wrap: wrap;
      justify-content: space-around;
-     color: #d1e8e2;
+     color: var(--grey-green);
 
 }
 
@@ -120,17 +123,32 @@ main {
 }
 
 /* COMMENT: Individual Game Cards and holiday card */
-.singleGameCard, .holidayDates {
+.singleGameCard  {
      display: flex;
      flex-direction: column;
      flex: 0 0 auto;
      min-width: 8em;
      min-height: 10em;
      margin: 0.5em 0.5em;
-     background-color: #116466;
+     background-color: var(--sea-green);
      padding: 0.5em;
      justify-content: space-between;
 
+}
+
+.holidayDates{
+     display:flex;
+     flex-direction: column;
+     flex: 0 0 auto;
+     background-color: var(--sea-green);
+     border: 1px solid var(--gold);
+     padding: 2em;
+     justify-content: space-between;
+}
+
+/* make the error text for incorrect country red */
+#errorText{
+     color: var(--dark-red);
 }
 
 /* resize holiday search button */

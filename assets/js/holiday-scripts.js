@@ -5,6 +5,8 @@ var country = 'US'; // default country
 var isReal = 0;
 var holidayList = document.getElementById("holidayListItem");
 var holidaySearchButton = document.getElementById("holidaySearchButton");
+var errorFlag = document.getElementById("errorText");
+
 
 // hide the holiday card from the main page
 function hideHoliday() {
@@ -42,6 +44,10 @@ function selectCountry(){
         country = countriesList[i].code;
         // change isReal to 1, used to indicate if the user input is a valid country for error handling
         isReal = 1;
+        // remove the error text from the error box
+        while (errorFlag.firstChild) {
+            errorFlag.removeChild(errorFlag.firstChild);
+        }
         }
     }
 }
@@ -107,7 +113,7 @@ function getOverrideInputs(){
     // remove child code from https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
     while (holidayList.firstChild) {
         holidayList.removeChild(holidayList.firstChild);
-      }
+    }
     // get the country from the input box
     countryInput = document.getElementById("countryInput").value;
     countryInput = countryInput.toLowerCase();
@@ -117,10 +123,10 @@ function getOverrideInputs(){
     // call the selectCountry function to use the imput to get the country code
     selectCountry();
 
-    // if the country name does not match the options, enter no
+    // if the country name does not match the options, show error wording
     console.log(isReal);
     if (isReal == 0){
-        window.alert("This is not a valid answer, please try again. Rememeber that the country name must be spelled correctly.")
+        errorFlag.innerHTML = "This is not a valid answer, please try again. Rememeber that the country name must be spelled correctly.";
     }
 
     console.log(country);
@@ -128,6 +134,8 @@ function getOverrideInputs(){
     fetchHolidayURL(1,1,2022,country);
     // call the API with the new URL to get the new holidays
     getHoliday();
+    // reset the isReal variable to allow proper error handling on each call
+    isReal = 0;
 
 }
 
