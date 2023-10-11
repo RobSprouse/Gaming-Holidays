@@ -10,7 +10,7 @@ This application can be run as-is through the deployed webpage link.
 
 ## Usage
 
-TBD
+When loading up the website there are 3 different search options Normal, Precise, and Exact. There is a platforms catagory that displays a pop-up where the user can choose which platform the games that pop-up are. There is a button for a pop-up for the genres catagories, this allows the user to choose which genres the games that pop-up are. When the games pop-up there are 2 things that the user can do, the user can click the name of the game that they choose and it will bring up the games page and give more details to the game and also show what holidays happened when the game was released and also the future holidays. The second thing that the user can do is click the wishlist button which adds the game to the wishlist on the side and this allows the user to go back to a game that they add in their wish list from any page.
 
 ## Credits
 
